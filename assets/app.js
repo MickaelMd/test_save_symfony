@@ -8,6 +8,7 @@ import "./bootstrap.js";
 import "./styles/app.css";
 import "./js/nav_footer.js";
 import "./js/colors.js";
+import "./js/ceciestuntest.js";
 
 // async function fetchPlats() {
 //   try {
