@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The District : Contact{% endblock %}
+
+ {% block javascripts %}
+ {{ parent() }}
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+            <script src="/assets/js/contact_maps.js" defer></script>
+            <script src="/assets/js/contact_form.js" defer></script>
+
+        {% endblock %}
+
+{% block body %}
+
+
+<div class="text-center mt-5 mb-5">
+    <h1 >Adresse</h1>
+    <p>30 Rue de Poulainville, 80000 Amiens</p>
+
+    <h1>Téléphone</h1> 
+    <p>09 72 72 39 36</p>
+</div>
+      <div id="OSM-map" class="rounded" style="height: 500px"></div>
+
+<div class="row mt-5 mb-5">
+ {{ form_start(form) }}
+    <div class="col-9 mx-auto mb-2 mt-4">
+        <label for="{{ form.objet.vars.id }}" class="form-label" id="label_objet">Sujet du message</label>
+        {{ form_widget(form.objet, {'attr': {'class': 'form-control', 'placeholder': 'Entrez le sujet'}}) }}
+        {{ form_errors(form.objet) }}
+    </div>
+    <div class="col-9 mx-auto mb-2">
+        <label for="{{ form.email.vars.id }}" class="form-label" id="label_email">Votre adresse email</label>
+        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre email'}}) }}
+        {{ form_errors(form.email) }}
+    </div>
+    <div class="col-9 mx-auto mb-2">
+        <label for="{{ form.message.vars.id }}" class="form-label" id="label_message">Votre message</label>
+        {{ form_widget(form.message, {'attr': {'class': 'form-control' ,'style' : 'height: 200px', 'placeholder': 'Tapez votre message ici...'}}) }}
+        {{ form_errors(form.message) }}
+    </div>
+    <div class="col-9 mx-auto mt-4">
+        <button type="submit" id="submit" class="btn btn-primary w-100">Envoyer</button>
+    </div>
+    {{ form_end(form) }}
+</div>
+
+
+{% endblock %}
