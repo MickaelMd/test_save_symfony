@@ -4,7 +4,7 @@ framework:
   annotations: false
   http_method_override: false
   handle_all_throwables: true
-  asset_mapper: false
+  asset_mapper: true
 
   # Enables session support. Note that the session will ONLY be started if you read or write from it.
   # Remove or comment this section to explicitly disable session support.
@@ -23,9 +23,9 @@ when@test:
     test: true
     session:
       storage_factory_id: session.storage.factory.mock_file
-# Solution pour le problème de la doc Swagger : je désactive asset mapper dans config/packages/framework.yaml
+# Solution pour le problème de la doc Api platform : je désactive asset mapper dans config/packages/framework.yaml
 
 # framework:
 #   asset_mapper: false
 
-#  et je le réactive quand j'ai plus besoin de la doc, l'API fonctionne toujours sans la doc.
+#  et je le réactive quand j'ai plus besoin de la doc, l'API fonctionne même sans la doc.

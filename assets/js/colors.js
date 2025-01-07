@@ -3,8 +3,9 @@ let lastcolor;
 const colors = [
   { backgroundColor: "#ff5733", color: "white" },
   { backgroundColor: "#33ff57", color: "black" },
-  { backgroundColor: "#3357ff", color: "yellow" },
+  { backgroundColor: "#0044ff", color: "white" },
   { backgroundColor: "#970747", color: "white" },
+  { backgroundColor: "#5527ff", color: "white" },
 ];
 
 document.addEventListener("mousedown", () => {

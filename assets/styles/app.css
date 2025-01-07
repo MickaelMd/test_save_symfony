@@ -10,7 +10,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  position: sticky;
+  position: fixed;
+  width: 80%;
+  margin: 0% 15% 0% 10%;
 
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(6px);
@@ -140,6 +142,8 @@ nav ul li a:hover {
   nav {
     flex-direction: column;
     height: 55px;
+    margin: 0% 10% 0% 5%;
+    width: 90%;
   }
 
   nav ul {
