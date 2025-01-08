@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The District : Catégories{% endblock %}
+
+{% block body %}
+<ul>
+
+    {% for category in categories %}
+        <li>{{ category.libelle }} - {{ category.image }} - {{ category.id }}</li>
+    {% else %}
+        <p>Aucune catégorie disponible</p>
+    {% endfor %}
+</ul>
+
+<section id="categories_section">
+    {% for category in categories %}
+        
+    {% else %}
+        <p>Aucune catégorie disponible</p>
+    {% endfor %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} The District : {{ plat.libelle }}{% endblock %}
+
+{% block body %}
+<section id="plat_show_card"> 
+    <div id="plat_show_card_enter" >
+    <h1 class="text-center">{{ plat.libelle }}</h1>
+    <img src="{{ asset('/assets/img/food/' ~ plat.image) }}" alt="Image {{ plat.libelle }}">
+    <p class="mt-3">{{ plat.description }}</p>
+    <p><strong>Prix : </strong>{{ plat.prix }} €</p>
+
+    <a class="btn_commande_plat" href="/commander/{{ plat.id }}">Commander</a>
+    </div>
+    </section>
+{% endblock %}

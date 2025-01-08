@@ -8,7 +8,7 @@ let active = false;
 document.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
 
-  if (currentScroll > 300) {
+  if (currentScroll > 100) {
     if (active == false) {
       nav.style.top = "-100px";
       nav.style.transition = "1000ms";

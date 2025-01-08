@@ -15,26 +15,19 @@
     </head>
     <body>
     
-
 <nav>
-
 <div id="logo_mobile_container">
-
     <a href="{{ path('app_index') }}">
         <img src={{asset('assets/img/the_district_brand/nav_logo.svg') }} alt="Logo" id="logo_nav">
-
-       
     </a>
 
  <div id="btn-nav-div">  
-
     <input type="checkbox" id="checkbox">
         <label for="checkbox" class="toggle">
             <div class="bars" id="bar1"></div>
             <div class="bars" id="bar2"></div>
             <div class="bars" id="bar3"></div>
         </label>
-
     </div>
 
 <a id="cart_logo_mobile" href="{{ path('app_index') }}">
@@ -54,7 +47,6 @@
         <img  src={{asset('/assets/img/logo/shoppinglogo.png')}} alt="Shopping Logo" id="shopping_nav">
     </a>
 </nav>
-
 
 <div class="container">
 
@@ -106,12 +98,15 @@
 
     <div id="footer_l-p_container">
         <ul>
-        <li><a href="/pdc">Politique de confidentialité</a></li>
-        <li><a href="/mentions-legales">Mentions légales</a></li>
+        <li><a href="{{ path('app_cgv')}}">Politique de confidentialité</a></li>
+        <li><a href="{{ path('app_mentions_legales')}}">Mentions légales</a></li>
+        </ul>
+        <ul>
+        <li> <a href="{{ path('app_apropos')}}">À propos</a></li>
         </ul>
     </div>
 
-    <div id="footer_legal_container" class="mb-2">
+    <div id="footer_legal_container" class="mb-2 text-light">
         <p>&copy; 2025 The District. Tous droits réservés.</p>
     </div>
 

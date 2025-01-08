@@ -13,11 +13,27 @@ class PlatsController extends AbstractController
     public function index(PlatRepository $platRepository): Response
     {
        
-        $plats = $platRepository->findAll();
+        $plats = $platRepository->findBy(['active' => 1]);
+        // $plats = [];
 
-      
         return $this->render('plats/index.html.twig', [
             'plats' => $plats,  
         ]);
     }
+
+
+    #[Route('/plats/{id}', name: 'app_plat_show')]
+    public function show(int $id, PlatRepository $platRepository): Response
+    {
+        $plat = $platRepository->find($id);
+
+        if (!$plat) {
+            return $this->redirectToRoute('app_plats');
+        }
+
+        return $this->render('plats/plat.html.twig', [
+            'plat' => $plat,
+        ]);
+    }
+
 }

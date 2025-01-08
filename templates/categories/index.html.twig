@@ -3,13 +3,33 @@
 {% block title %}The District : Catégories{% endblock %}
 
 {% block body %}
-<ul>
 
+
+<section id="categories_section">
     {% for category in categories %}
-        <li>{{ category.libelle }} - {{ category.image }}</li>
+        <div class="cards_index_categories">
+            <h1>{{ category.libelle }}</h1>
+            <div class="cards_index_categories_content">
+                <div class="cards_index_categories_img">
+                    <img src="{{ asset('/assets/img/category/' ~ category.image) }}" alt="Image {{ category.libelle }}"> 
+                </div>
+                <ul>
+                    {% for plat in category.plats %}
+                        <li>
+                           <a href="{{ path('app_plat_show', {'id': plat.id}) }}">{{ plat.libelle }} - {{ plat.prix }}€</a> 
+                        </li>
+                    {% else %}
+                        <li>Aucun plat disponible pour cette catégorie.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     {% else %}
-        <p>Aucune catégorie disponible</p>
+        <h1 class="erreur_bdd text-danger">Aucune catégorie trouvée.</h1>
     {% endfor %}
-</ul>
+</section>
+
+
+
 
 {% endblock %}
