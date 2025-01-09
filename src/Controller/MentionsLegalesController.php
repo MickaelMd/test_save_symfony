@@ -32,4 +32,6 @@ class MentionsLegalesController extends AbstractController
             'controller_name' => 'PolitiqueDeConfidentialiteController',
         ]);
     }
+
+
 }

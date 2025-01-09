@@ -36,3 +36,21 @@ document.addEventListener("mousedown", () => {
 
   lastcolor = newcolors;
 });
+
+// ------------
+
+const logo = document.getElementById("logo_header");
+let i = 0;
+let angle = 0;
+
+logo.addEventListener("click", () => {
+  i++;
+  if (i === 10) {
+    for (let i = 0; i < 100; i++) {
+      angle += 360;
+      logo.style.transition = "transform 2s ease-in-out";
+      logo.style.transform = `rotate(${angle}deg)`;
+    }
+    i = 0;
+  }
+});

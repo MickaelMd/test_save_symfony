@@ -21,17 +21,17 @@ class CategoriesController extends AbstractController
         ]);
     }
 
-    #[Route('/categories/{id}', name: 'app_categories_show')]
-    public function show(int $id, CategorieRepository $categorieRepository): Response
-    {
-        $categorie = $categorieRepository->find($id);
+    // #[Route('/categories/{id}', name: 'app_categories_show')]
+    // public function show(int $id, CategorieRepository $categorieRepository): Response
+    // {
+    //     $categorie = $categorieRepository->find($id);
 
-        if (!$categorie) {
-            return $this->redirectToRoute('app_categories');
-        }
+    //     if (!$categorie) {
+    //         return $this->redirectToRoute('app_categories');
+    //     }
 
-        return $this->render('categories/categorie.html.twig', [
-            'categories' => $categorie,
-        ]);
-    }
+    //     return $this->render('categories/categorie.html.twig', [
+    //         'categories' => $categorie,
+    //     ]);
+    // }
 }

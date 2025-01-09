@@ -9,14 +9,12 @@
             <script src="/assets/js/contact_maps.js" defer></script>
             <script src="/assets/js/contact_form.js" defer></script>
 
-            
-
         {% endblock %}
 
 {% block body %}
 
 
-<div class="text-center mt-5 mb-5">
+<div class="text-center mt-1 mb-5">
     <h1 >Adresse</h1>
     <p>30 Rue de Poulainville, 80000 Amiens</p>
 
@@ -25,7 +23,7 @@
 </div>
       <div id="OSM-map" class="rounded" style="height: 500px"></div>
 
-<div class="row mt-5 mb-5">
+<div class="row mt-5 mb-5 contact_form">
  {{ form_start(form) }}
     <div class="col-9 mx-auto mb-2 mt-4">
         <label for="{{ form.objet.vars.id }}" class="form-label" id="label_objet">Sujet du message</label>

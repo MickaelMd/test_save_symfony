@@ -26,10 +26,6 @@ class ContactController extends AbstractController
             $entityManager->flush();
     
 
-            $test = 'yy';
-
-            print_r($test);
-
             return $this->redirectToRoute('app_contact_success');
         }
     

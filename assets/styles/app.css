@@ -1,12 +1,26 @@
 body {
   top: 0;
   color: rgb(0, 0, 0);
-  background-color: #ffcd83;
+  background-color: #d9b08c;
   background-image: url(/assets/img/grain.png);
   background-size: 300px 300px;
   background-position: 0 0;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
+  font-family: "Nunito", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", serif;
+}
+
+.font-title {
+  font-family: "Roboto", serif;
 }
 
 /* ------------ !!!!!!!!!!! - Navbar - !!!!!!!!!!! ------------ */
@@ -56,7 +70,7 @@ nav ul li a.active {
 
 nav ul li a:hover {
   transition: 150ms;
-  color: rgb(7, 7, 7);
+  color: #e24189;
 }
 
 #logo_nav {
@@ -155,7 +169,6 @@ nav ul li a:hover {
 
   nav ul {
     display: flex;
-    /* display: none; */
     flex-direction: column;
     order: 8;
     flex: 8;
@@ -180,22 +193,48 @@ nav ul li a:hover {
   }
 }
 
+/* ------------ !!!!!!!!!!! - Header - !!!!!!!!!!! ------------ */
+
+#logo_header {
+  margin-top: 50px;
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+#input_search {
+  max-width: 500px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 20px 0;
+  border: 1px solid #c4c4c4;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+#input_search:focus {
+  border-color: #970747;
+  box-shadow: 0 0 8px #970747;
+  outline: none;
+}
+
+#input_search::placeholder,
+.contact_form input::placeholder,
+#contact_form_message::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+#input_search:hover {
+  border-color: #970747;
+}
+
 /* ------------ !!!!!!!!!!! - Footer - !!!!!!!!!!! ------------ */
 
 footer {
   display: flex;
   flex-direction: column;
   background-color: rgba(10, 10, 10, 0.616);
-}
-
-#footer_logo_container {
-  display: flex;
-  justify-content: center;
-}
-
-#footer_logo_container img {
-  width: 280px;
-  /* border: 1px solid white; */
 }
 
 #footer_links_container ul,
@@ -301,7 +340,7 @@ footer ul li a.active::after {
 
 .btn_commande_plat {
   padding: 10px 20px;
-  margin: 5%;
+  margin: 2% 5% 5% 5%;
   text-decoration: none;
   background-color: #ffcd83;
   color: #000000;
@@ -367,12 +406,21 @@ footer ul li a.active::after {
   box-shadow: 0px 0px 16px -4px #000000;
 }
 
+.cards_index_categories:hover,
+.cards_index_plat:hover,
+#plat_show_card:hover {
+  outline: 2px solid #970747;
+  transition: 100ms;
+  -webkit-box-shadow: 0px 0px 16px -4px #970747;
+  box-shadow: 0px 0px 16px -4px #970747;
+}
+
 .cards_index_categories_content {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 5px;
   width: 100%;
 }
 
@@ -392,6 +440,11 @@ footer ul li a.active::after {
   border-radius: 4px;
   background-color: #ffcd83;
   transition: 150ms;
+}
+
+.cards_index_categories_content a:hover {
+  background-color: #ffb340;
+  transition: 100ms;
 }
 
 .cards_index_categories_img {
@@ -430,16 +483,16 @@ footer ul li a.active::after {
 
   .cards_index_categories_content ul {
     margin-top: 15px;
-    display: flex; /* Permet de gérer le centrage */
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Dispose les éléments verticalement */
-    width: 100%; /* Évite que la liste soit trop étroite */
-    padding: 0; /* Supprime les éventuels padding par défaut */
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
   }
 
   .cards_index_categories_content li {
-    margin: 5px 0; /* Ajoute un espacement vertical entre les boutons */
+    margin: 5px 0;
   }
 
   .cards_index_categories_content a {
@@ -449,7 +502,7 @@ footer ul li a.active::after {
     border-radius: 4px;
     background-color: #ffcd83;
     transition: 150ms;
-    display: inline-block; /* Garantit une taille définie pour les boutons */
-    text-align: center; /* Centre le texte des boutons */
+    display: inline-block;
+    text-align: center;
   }
 }
