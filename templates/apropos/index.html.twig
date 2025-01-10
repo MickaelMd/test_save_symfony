@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AproposController!{% endblock %}
+{% block title %}The District : À propos{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section id="about_us" class="container mt-5 mb-5">
+    <h1 class="text-center mb-4">À propos de The District</h1>
+    
+    <p class="text-justify">
+        Bienvenue sur <strong>The District</strong>, votre plateforme dédiée à l'art culinaire. 
+        Nous nous engageons à vous offrir une expérience unique en mettant à votre disposition une sélection 
+        de plats préparés avec passion par nos chefs. Notre objectif est de célébrer la gastronomie tout en 
+        facilitant votre commande en ligne.
+    </p>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h2 class="mt-5 mb-3">Notre mission</h2>
+    <p>
+        Chez The District, nous croyons que chaque repas doit être une fête des sens. Que vous soyez en quête 
+        d'une expérience gastronomique raffinée ou d'un plat réconfortant, nous travaillons pour vous proposer 
+        une carte variée, qui évolue avec les saisons et respecte les produits locaux.
+    </p>
 
-    This friendly message is coming from:
+    <h2 class="mt-5 mb-3">Nos valeurs</h2>
     <ul>
-        <li>Your controller at <code>C:/Users/micka/Desktop/symfony/test_save_symfony/src/Controller/AproposController.php</code></li>
-        <li>Your template at <code>C:/Users/micka/Desktop/symfony/test_save_symfony/templates/apropos/index.html.twig</code></li>
+        <li><strong>Qualité :</strong> Tous nos plats sont préparés à partir d'ingrédients soigneusement sélectionnés.</li>
+        <li><strong>Accessibilité :</strong> Une navigation intuitive pour trouver vos plats préférés en quelques clics.</li>
+        <li><strong>Durabilité :</strong> Nous soutenons les producteurs locaux et minimisons notre empreinte écologique.</li>
     </ul>
-</div>
+
+    <h2 class="mt-5 mb-3">L'équipe derrière The District</h2>
+    <p>
+        The District, c'est avant tout une équipe de passionnés, composée de chefs créatifs, de développeurs 
+        dévoués et d'experts du service client. Ensemble, nous partageons une ambition commune : vous faire vivre 
+        une expérience inoubliable, du clic jusqu'à votre assiette.
+    </p>
+
+    <div class="text-center mt-5">
+        <a href="{{ path('app_index') }}" class="btn btn-primary">Retour à l'accueil</a>
+    </div>
+</section>
 {% endblock %}

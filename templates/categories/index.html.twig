@@ -6,9 +6,10 @@
 
 
 <section id="categories_section">
+<h2 class="m-3">Nos catégories et plats associés</h2>
     {% for category in categories %}
         <div class="cards_index_categories">
-            <h1>{{ category.libelle }}</h1>
+            <h1 id="link-cat-{{ category.id }}">{{ category.libelle }}</h1>
             <div class="cards_index_categories_content">
                 <div class="cards_index_categories_img">
                     <img src="{{ asset('/assets/img/category/' ~ category.image) }}" alt="Image {{ category.libelle }}"> 
@@ -28,8 +29,6 @@
         <h1 class="erreur_bdd text-danger">Aucune catégorie trouvée.</h1>
     {% endfor %}
 </section>
-
-
 
 
 {% endblock %}
