@@ -1,4 +1,5 @@
 const input = document.getElementById("input_search");
+const result = document.getElementById("search_result");
 let active = false;
 
 fetch("/api/plats?page=1")
@@ -13,14 +14,26 @@ fetch("/api/plats?page=1")
         plat.libelle.toLowerCase().includes(searchTerm)
       );
 
-      const limitedResults = results.slice(0, 3);
+      const limitedResults = results.slice(0, 4);
+      const searchResultContainer = document.getElementById("search_result");
 
-      console.log("Plats trouvés:", limitedResults);
+      searchResultContainer.innerHTML = "";
 
       limitedResults.forEach((plat) => {
-        console.log(
-          `ID: ${plat.id}, Libellé: ${plat.libelle}, Lien: ${plat["@id"]}`
-        );
+        const a = document.createElement("a");
+        a.className = "result_result";
+        a.href = "/plats/" + plat.id;
+
+        const h6 = document.createElement("h6");
+        h6.textContent = plat.libelle;
+        a.appendChild(h6);
+
+        const searchResultContainer = document.getElementById("search_result");
+        searchResultContainer.appendChild(a);
+
+        // console.log(
+        //   `ID: ${plat.id}, Libellé: ${plat.libelle}, Lien: ${plat["@id"]}`
+        // );
       });
     });
   })
@@ -47,3 +60,5 @@ input.addEventListener("blur", () => {
     console.log(active);
   }
 });
+
+result.style.position;
