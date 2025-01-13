@@ -43,7 +43,7 @@
         <li><a href="{{ path('app_categories') }}">Catégories</a></li>
         <li><a href="{{ path('app_plats') }}">Plats</a></li>
         <li><a href="{{ path('app_contact') }}">Contact</a></li>
-        <li><a href="{{ path('app_index') }}">Connexion / Inscription</a></li>
+        <li><a href="{{ path('app_auth') }}">Connexion / Inscription</a></li>
     </ul>
 
     <a id="cart_logo_desktop" href="{{ path('app_panier') }}">
@@ -54,9 +54,9 @@
 <div class="container">
 
 <header class="mt-5 d-flex flex-column justify-content-center align-items-center">
-    {# <a href="{{ path('app_index') }}"> #}
+    <a href="{{ path('app_index') }}">
         <img src="/assets/img/the_district_brand/logo_transparent.png" alt="Logo" id="logo_header">
-    {# </a> #}
+    </a>
 <input type="text" id="input_search" placeholder="Rechercher un plat...">
  
     <div id="search_result">
@@ -78,7 +78,7 @@
                 <li><a href="{{ path('app_categories') }}">Catégories</a></li>
                 <li><a href="{{ path('app_plats') }}">Plats</a></li>
                 <li><a href="{{ path('app_contact') }}">Contact</a></li>
-                <li><a href="{{ path('app_index') }}">Connexion / Inscription</a></li>
+                <li><a href="{{ path('app_auth') }}">Connexion / Inscription</a></li>
             </ul>
         </div>
 

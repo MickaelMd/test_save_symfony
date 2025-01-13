@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}The District : Connexion - Inscription{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    <form action="{{ path('app_auth') }}" method="post" data-turbo="false">
+    {{ form_start(registrationForm) }}
+    
+        <div class="form-group">
+            <label for="{{ registrationForm.email.vars.id }}" class="form-label">Adresse email</label>
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre email'}}) }}
+            {{ form_errors(registrationForm.email) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.password.vars.id }}" class="form-label">Mot de passe</label>
+            {{ form_widget(registrationForm.password, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre mot de passe'}}) }}
+            {{ form_errors(registrationForm.password) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.confirmPassword.vars.id }}" class="form-label">Confirmer le mot de passe</label>
+            {{ form_widget(registrationForm.confirmPassword, {'attr': {'class': 'form-control', 'placeholder': 'Confirmez votre mot de passe'}}) }}
+            {{ form_errors(registrationForm.confirmPassword) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.nom.vars.id }}" class="form-label">Nom</label>
+            {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre nom'}}) }}
+            {{ form_errors(registrationForm.nom) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.prenom.vars.id }}" class="form-label">Prénom</label>
+            {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre prénom'}}) }}
+            {{ form_errors(registrationForm.prenom) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.telephone.vars.id }}" class="form-label">Téléphone</label>
+            {{ form_widget(registrationForm.telephone, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre téléphone'}}) }}
+            {{ form_errors(registrationForm.telephone) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.adresse.vars.id }}" class="form-label">Adresse</label>
+            {{ form_widget(registrationForm.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre adresse'}}) }}
+            {{ form_errors(registrationForm.adresse) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.cp.vars.id }}" class="form-label">Code postal</label>
+            {{ form_widget(registrationForm.cp, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre code postal'}}) }}
+            {{ form_errors(registrationForm.cp) }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ registrationForm.ville.vars.id }}" class="form-label">Ville</label>
+            {{ form_widget(registrationForm.ville, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre ville'}}) }}
+            {{ form_errors(registrationForm.ville) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+    {{ form_end(registrationForm) }}
+    </form>
+{% endblock %}

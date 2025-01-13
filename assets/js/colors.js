@@ -40,10 +40,11 @@ document.addEventListener("mousedown", () => {
 // ------------
 
 const logo = document.getElementById("logo_header");
+const input = document.getElementById("input_search");
 let i = 0;
 let angle = 0;
 
-logo.addEventListener("click", () => {
+input.addEventListener("click", () => {
   i++;
   if (i === 10) {
     for (let i = 0; i < 100; i++) {
