@@ -43,7 +43,14 @@
         <li><a href="{{ path('app_categories') }}">Catégories</a></li>
         <li><a href="{{ path('app_plats') }}">Plats</a></li>
         <li><a href="{{ path('app_contact') }}">Contact</a></li>
-        <li><a href="{{ path('app_auth') }}">Connexion / Inscription</a></li>
+        <li>
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('app_login') }}">Connexion</a>
+            {% endif %}
+        </li>
+
     </ul>
 
     <a id="cart_logo_desktop" href="{{ path('app_panier') }}">
@@ -78,7 +85,14 @@
                 <li><a href="{{ path('app_categories') }}">Catégories</a></li>
                 <li><a href="{{ path('app_plats') }}">Plats</a></li>
                 <li><a href="{{ path('app_contact') }}">Contact</a></li>
-                <li><a href="{{ path('app_auth') }}">Connexion / Inscription</a></li>
+                <li>
+                    {% if app.user %}
+                        <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a href="{{ path('app_login') }}">Connexion</a>
+                    {% endif %}
+                </li>
+
             </ul>
         </div>
 

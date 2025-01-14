@@ -3,7 +3,7 @@
 {% block title %}The District : Connexion - Inscription{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+    <h2 class="text-center mt-3">Inscription</h2>
 
     <form action="{{ path('app_auth') }}" method="post" data-turbo="false">
     {{ form_start(registrationForm) }}
@@ -62,7 +62,7 @@
             {{ form_errors(registrationForm.ville) }}
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+        <button type="submit" class="btn mt-2 btn-primary w-100">S'inscrire</button>
     {{ form_end(registrationForm) }}
     </form>
 {% endblock %}

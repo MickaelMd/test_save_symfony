@@ -33,10 +33,10 @@ class AuthController extends AbstractController
         if ($registrationForm->isSubmitted()) {
             if ($registrationForm->isValid()) {
                 $user = $registrationForm->getData();
-    
+
                 $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
                 $user->setPassword($hashedPassword);
-    
+                $user->setRoles(['ROLE_USER']); 
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
 
@@ -47,8 +47,8 @@ class AuthController extends AbstractController
                 'registrationForm' => $registrationForm->createView(),
             ])->setPublic()->setMaxAge(0);
         }
-    
-        // Affiche le formulaire
+        
+        
         return $this->render('auth/index.html.twig', [
             'registrationForm' => $registrationForm->createView(),
         ]);
