@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : ven. 03 jan. 2025 à 08:46
+-- Généré le : mer. 15 jan. 2025 à 08:42
 -- Version du serveur : 10.11.8-MariaDB-0ubuntu0.24.04.1
 -- Version de PHP : 8.3.6
 
@@ -73,17 +73,6 @@ CREATE TABLE `contact` (
   `objet` varchar(255) NOT NULL,
   `message` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Déchargement des données de la table `contact`
---
-
-INSERT INTO `contact` (`id`, `email`, `objet`, `message`) VALUES
-(1, 'test@test.com', 'test', 'test'),
-(2, 'test@test.com', 'dza', 'da'),
-(3, 'daz@gmail.com', 'da', 'da'),
-(4, 'daz@gmail.com', 'test', 'dza'),
-(5, 'daz@gmail.com', 'da', 'd');
 
 -- --------------------------------------------------------
 
@@ -166,6 +155,13 @@ CREATE TABLE `utilisateur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id`, `email`, `roles`, `password`, `nom`, `prenom`, `telephone`, `adresse`, `cp`, `ville`) VALUES
+(1, 'test@test.com', '[\"ROLE_USER\"]', '$2y$13$Ge37f6PtzDlYSTtTh42D7eaAWdlcJ3vclut6.n/A/YkkWx1VNFAg6', 'TestNom', 'TestPrenom', '0707070707', '100 Rue du Test', '00000', 'Test');
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -239,7 +235,7 @@ ALTER TABLE `commande`
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `detail`
@@ -263,7 +259,7 @@ ALTER TABLE `plat`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

@@ -10,32 +10,27 @@ function activeSearch() {
   }
 }
 
+function createElement(link, message) {
+  const a = document.createElement("a");
+  a.className = "result_result";
+  a.href = link;
+
+  const h6 = document.createElement("h6");
+  h6.textContent = message;
+  a.appendChild(h6);
+  const searchResultContainer = document.getElementById("search_result");
+  searchResultContainer.appendChild(a);
+}
+
 function foreachData(results) {
   const limitedResults = results.slice(0, 4);
 
   limitedResults.forEach((plat) => {
-    const a = document.createElement("a");
-    a.className = "result_result";
-    a.href = "/plats/" + plat.id;
-
-    const h6 = document.createElement("h6");
-    h6.textContent = plat.libelle;
-    a.appendChild(h6);
-
-    const searchResultContainer = document.getElementById("search_result");
-    searchResultContainer.appendChild(a);
+    createElement("/plats/" + plat.id, plat.libelle);
   });
 
   if (limitedResults.length < 1) {
-    const a = document.createElement("a");
-    a.className = "result_result";
-    a.href = "/plats/";
-
-    const h6 = document.createElement("h6");
-    h6.textContent = "Aucun plat trouvé";
-    a.appendChild(h6);
-    const searchResultContainer = document.getElementById("search_result");
-    searchResultContainer.appendChild(a);
+    createElement("/plats/", "Aucun plat trouvé");
   }
 }
 
@@ -60,6 +55,7 @@ fetch("/api/plats?page=1")
   })
   .catch((error) => {
     console.error("Erreur : ", error);
+    createElement("/plats/", "Erreur de chargement");
   });
 
 const toggleActive = () => {
