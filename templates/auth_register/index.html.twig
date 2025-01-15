@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}The District : Connexion - Inscription{% endblock %}
+{% block title %}The District : Inscription{% endblock %}
 
 {% block body %}
+
 
 <section id="auth_inscription">
     <h2 class="text-center mt-3">Inscription</h2>
@@ -64,7 +65,7 @@
             {{ form_errors(registrationForm.ville) }}
         </div>
 
-        <button type="submit" class="btn mt-2 btn-primary w-100">S'inscrire</button>
+        <button type="submit" class="btn mt-4 mb-4 btn-primary w-100">S'inscrire</button>
     {{ form_end(registrationForm) }}
     </form>
     </section>

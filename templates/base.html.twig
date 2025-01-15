@@ -9,8 +9,15 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <meta name="turbo-visit-control" content="reload">
-  
+        
+ {# <meta name="turbo-visit-control" content="reload"> #}
+
+    {# {% if app.request.get('_route') != 'app_login' %}
+    <meta name="turbo-visit-control" content="reload">
+{% else %}
+    <meta name="turbo-visit-control" content="off">
+{% endif %} #}
+        
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
@@ -64,7 +71,7 @@
     <a href="{{ path('app_index') }}">
         <img src="/assets/img/the_district_brand/logo_transparent.png" alt="Logo" id="logo_header">
     </a>
-<input type="text" id="input_search" placeholder="Rechercher un plat...">
+<input type="text" id="input_search" autocomplete="off" placeholder="Rechercher un plat...">
  
     <div id="search_result">
 

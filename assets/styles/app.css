@@ -595,7 +595,8 @@ footer ul li a.active::after {
 }
 
 /* ------------ !!!!!!!!!!! - Auth : Inscription / connexion - !!!!!!!!!!! ------------ */
-#auth_inscription input {
+#auth_inscription input,
+#auth_login input {
   width: 100%;
   padding: 8px 12px;
 
@@ -603,24 +604,32 @@ footer ul li a.active::after {
   border-radius: 50px;
   transition: all 0.3s ease;
 }
-#auth_inscription label {
+#auth_inscription label,
+#auth_login label {
   margin-top: 5px;
 }
 
-#auth_inscription input:focus {
+#auth_inscription input:focus,
+#auth_login input:focus {
   border-color: #970747;
   box-shadow: 0 0 8px #970747;
   outline: none;
 }
 
-#auth_inscription input::placeholder {
+#auth_inscription input::placeholder,
+#auth_login input::placeholder {
   color: #888;
   font-style: italic;
 }
 
-#auth_inscription input:hover {
+#auth_inscription input:hover,
+#auth_login input:hover {
   border-color: #970747;
 }
 #auth_inscription button {
   margin: 20px 0px 20px 0px;
+}
+
+.error_auth_login {
+  font-size: 16pt;
 }

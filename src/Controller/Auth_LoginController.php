@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-class LoginController extends AbstractController
+class Auth_LoginController extends AbstractController
 {
     #[Route('/login', name: 'app_login', methods: ['GET', 'POST'])]
     public function index(AuthenticationUtils $utils): Response
@@ -21,7 +21,7 @@ class LoginController extends AbstractController
         $lastUsername = $utils->getLastUsername();
 
 
-        return $this->render('login/index.html.twig', [
+        return $this->render('auth_login/index.html.twig', [
             'error' => $error,
             'last_username' => $lastUsername
         ]);

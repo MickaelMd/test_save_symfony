@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Utilisateur;
 use App\Form\RegistrationFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface; 
 use Doctrine\ORM\EntityManagerInterface;
 
-class AuthController extends AbstractController
+class Auth_RegisterController extends AbstractController
 {
     private UserPasswordHasherInterface $passwordHasher;
     private EntityManagerInterface $entityManager;
@@ -40,16 +39,16 @@ class AuthController extends AbstractController
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
 
-                return $this->redirectToRoute('app_index');
+                return $this->render('auth_register/valide.html.twig');
             }
     
-            return $this->render('auth/index.html.twig', [
+            return $this->render('auth_register/index.html.twig', [
                 'registrationForm' => $registrationForm->createView(),
             ])->setPublic()->setMaxAge(0);
         }
         
         
-        return $this->render('auth/index.html.twig', [
+        return $this->render('auth_register/index.html.twig', [
             'registrationForm' => $registrationForm->createView(),
         ]);
     }
