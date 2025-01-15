@@ -593,3 +593,34 @@ footer ul li a.active::after {
     text-align: center;
   }
 }
+
+/* ------------ !!!!!!!!!!! - Auth : Inscription / connexion - !!!!!!!!!!! ------------ */
+#auth_inscription input {
+  width: 100%;
+  padding: 8px 12px;
+
+  border: 1px solid #c4c4c4;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+#auth_inscription label {
+  margin-top: 5px;
+}
+
+#auth_inscription input:focus {
+  border-color: #970747;
+  box-shadow: 0 0 8px #970747;
+  outline: none;
+}
+
+#auth_inscription input::placeholder {
+  color: #888;
+  font-style: italic;
+}
+
+#auth_inscription input:hover {
+  border-color: #970747;
+}
+#auth_inscription button {
+  margin: 20px 0px 20px 0px;
+}
