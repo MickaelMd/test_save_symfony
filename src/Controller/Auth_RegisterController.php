@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class Auth_RegisterController extends AbstractController
 {
+    
     private UserPasswordHasherInterface $passwordHasher;
     private EntityManagerInterface $entityManager;
 
@@ -26,6 +27,11 @@ class Auth_RegisterController extends AbstractController
     #[Route('/auth', name: 'app_auth')]
     public function index(Request $request): Response
     {
+
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_index'); 
+        }
+
         $registrationForm = $this->createForm(RegistrationFormType::class);
         $registrationForm->handleRequest($request);
     

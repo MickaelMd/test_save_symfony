@@ -2,6 +2,13 @@
 
 {% block title %}The District : Inscription{% endblock %}
 
+ {% block javascripts %}
+ {{ parent() }}
+            
+            <script src="/assets/js/auth_form.js" defer></script>
+
+        {% endblock %}
+
 {% block body %}
 
 
@@ -65,8 +72,11 @@
             {{ form_errors(registrationForm.ville) }}
         </div>
 
-        <button type="submit" class="btn mt-4 mb-4 btn-primary w-100">S'inscrire</button>
+        <button id="submit_btn" type="submit" class="btn mt-4 mb-4 btn-primary w-100 btn_auth">S'inscrire</button>
     {{ form_end(registrationForm) }}
     </form>
+    <div class="text-center mb-3 h3">
+<a href="{{ path('app_login')}}">Connexion</a>
+</div>
     </section>
 {% endblock %}

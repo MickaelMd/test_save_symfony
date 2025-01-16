@@ -10,13 +10,12 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         
- {# <meta name="turbo-visit-control" content="reload"> #}
 
-    {# {% if app.request.get('_route') != 'app_login' %}
-    <meta name="turbo-visit-control" content="reload">
-{% else %}
-    <meta name="turbo-visit-control" content="off">
-{% endif %} #}
+        {% if app.request.get('_route') in ['app_contact', 'app_auth'] %}
+            <meta name="turbo-visit-control" content="reload">
+        {% else %}
+            <meta name="turbo-visit-control" content="off">
+        {% endif %}
         
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}

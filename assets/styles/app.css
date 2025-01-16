@@ -595,6 +595,7 @@ footer ul li a.active::after {
 }
 
 /* ------------ !!!!!!!!!!! - Auth : Inscription / connexion - !!!!!!!!!!! ------------ */
+
 #auth_inscription input,
 #auth_login input {
   width: 100%;
@@ -632,4 +633,30 @@ footer ul li a.active::after {
 
 .error_auth_login {
   font-size: 16pt;
+}
+
+.btn_auth {
+  background-color: #ffcd83;
+  color: #000000;
+  border: none;
+  border-radius: 16px;
+
+  transition: 150ms;
+}
+
+.btn_auth:hover {
+  background-color: #ffb340;
+  transition: 100ms;
+  color: black;
+}
+
+.btn_auth:active {
+  background-color: #ffdeab !important;
+  color: black !important;
+}
+
+#auth_inscription li {
+  list-style: none;
+  margin-top: 5px;
+  color: red;
 }

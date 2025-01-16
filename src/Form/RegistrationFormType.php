@@ -13,6 +13,9 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Regex;
 
+use Symfony\Component\Validator\Constraints\Callback;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -48,6 +51,7 @@ class RegistrationFormType extends AbstractType
                     new NotBlank([
                         'message' => 'Veuillez confirmer votre mot de passe.',
                     ]),
+                    new Callback([$this, 'validatePasswordConfirmation']),
                 ],
             ])
             ->add('nom', TextType::class, [
@@ -126,4 +130,14 @@ class RegistrationFormType extends AbstractType
             'data_class' => Utilisateur::class,
         ]);
     }
+    public function validatePasswordConfirmation($confirmPassword, ExecutionContextInterface $context)
+{
+    $password = $context->getRoot()->get('password')->getData();
+
+    if ($confirmPassword !== $password) {
+        $context->buildViolation('Les mots de passe ne correspondent pas.')
+            ->atPath('confirmPassword')
+            ->addViolation();
+    }
+}
 }
