@@ -39,7 +39,7 @@ class RegistrationFormType extends AbstractType
                         'message' => 'Le mot de passe ne peut pas être vide.',
                     ]),
                     new Regex([
-                        'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+                        'pattern' => '/^(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/',
                         'message' => 'Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial.',
                     ]),
                 ],

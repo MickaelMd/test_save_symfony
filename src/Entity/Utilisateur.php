@@ -94,8 +94,8 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     public function getRoles(): array
     {
         $roles = array_unique($this->roles); 
-        if (!in_array('ROLE_USER', $roles)) {
-            $roles[] = 'ROLE_USER';
+        if (!in_array('ROLE_CLIENT', $roles)) {
+            $roles[] = 'ROLE_CLIENT';
         }
     
         return $roles;

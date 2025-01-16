@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 15 jan. 2025 à 08:42
+-- Généré le : jeu. 16 jan. 2025 à 13:18
 -- Version du serveur : 10.11.8-MariaDB-0ubuntu0.24.04.1
 -- Version de PHP : 8.3.6
 
@@ -159,7 +159,9 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `email`, `roles`, `password`, `nom`, `prenom`, `telephone`, `adresse`, `cp`, `ville`) VALUES
-(1, 'test@test.com', '[\"ROLE_USER\"]', '$2y$13$Ge37f6PtzDlYSTtTh42D7eaAWdlcJ3vclut6.n/A/YkkWx1VNFAg6', 'TestNom', 'TestPrenom', '0707070707', '100 Rue du Test', '00000', 'Test');
+(16, 'CompteClient@TestDev.com', '[\"ROLE_CLIENT\"]', '$2y$13$i9GKJHukVM/p9sSOuY90M.CYeJOysGINIudX0Nm5HiH.hM9stNuF2', 'Client', 'Client', '0707070707', '00 Rue Du Client', '00000', 'Client'),
+(17, 'CompteChef@TestDev.com', '[\"ROLE_CHEF\"]', '$2y$13$qAJHqNNjYSfUrQsDi6TQOeQnmTLL4fdPtFscmt59fB2YV20ZB0sYS', 'Chef', 'Chef', '0707070707', '00 Rue Du Chef', '00000', 'Chef'),
+(18, 'CompteAdmin@TestDev.com', '[\"ROLE_ADMIN\"]', '$2y$13$s/LLEvM/ORM0FsQiPFORV.eC6bry6xtsXQPWjMJyuOCI6/6NP.P0G', 'Admin', 'Root', '0707070707', '150 Rue de Admin', '00000', 'Admin');
 
 --
 -- Index pour les tables déchargées
@@ -259,7 +261,7 @@ ALTER TABLE `plat`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Contraintes pour les tables déchargées

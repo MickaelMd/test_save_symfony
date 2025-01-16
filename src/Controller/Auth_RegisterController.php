@@ -41,7 +41,7 @@ class Auth_RegisterController extends AbstractController
 
                 $hashedPassword = $this->passwordHasher->hashPassword($user, $user->getPassword());
                 $user->setPassword($hashedPassword);
-                $user->setRoles(['ROLE_USER']); 
+                $user->setRoles(['ROLE_CLIENT']); 
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
 

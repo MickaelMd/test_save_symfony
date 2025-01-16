@@ -128,5 +128,10 @@
 
 </footer>
 
+     {% if is_granted('ROLE_CHEF') or is_granted('ROLE_ADMIN') %}
+        <a class="btn_access" href="{{ path('app_gestion') }}">GESTION</a>
+          {% endif %}
+
+
     </body>
 </html>

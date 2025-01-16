@@ -9,7 +9,7 @@
 <h2 class="m-3">Nos catégories et plats associés</h2>
     {% for category in categories %}
         <div class="cards_index_categories">
-            <h1 id="link-cat-{{ category.id }}">{{ category.libelle }}</h1>
+            <h1 class="mt-3" id="link-cat-{{ category.id }}">{{ category.libelle }}</h1>
             <div class="cards_index_categories_content">
                 <div class="cards_index_categories_img">
                     <img src="{{ asset('/assets/img/category/' ~ category.image) }}" alt="Image {{ category.libelle }}"> 
