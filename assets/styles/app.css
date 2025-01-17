@@ -356,6 +356,7 @@ footer ul li a.active::after {
   border-radius: 4px;
   cursor: pointer;
   transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
 }
 
 #btn_accueil_plats:hover {
@@ -435,6 +436,7 @@ footer ul li a.active::after {
   border-radius: 4px;
   cursor: pointer;
   transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
 }
 
 .btn_commande_plat:hover {
@@ -640,7 +642,7 @@ footer ul li a.active::after {
   color: #000000;
   border: none;
   border-radius: 16px;
-
+  box-shadow: 0px 0px 20px -18px;
   transition: 150ms;
 }
 
@@ -683,4 +685,23 @@ footer ul li a.active::after {
 .btn_access:hover {
   background-color: #ffb340;
   box-shadow: 0px 0px 20px -18px;
+}
+
+#plat-select {
+  background-color: #ffcd83;
+  border: none;
+  width: 100%;
+  max-width: 600px;
+  padding: 8px 0px;
+}
+#plat-select:hover {
+  background-color: #ffb340;
+}
+
+.ges_modifier_plat {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  background-color: #ffcd83;
+  color: #000;
 }
