@@ -10,7 +10,7 @@
     <p class="mt-3">{{ plat.description }}</p>
     <p><strong>Prix : </strong>{{ plat.prix }} €</p>
 
-    <a class="btn_commande_plat" href="/commander/{{ plat.id }}">Ajouter au panier</a>
+    <a class="btn_commande_plat" href="{{ path('app_plat_show_add', {'id': plat.id}) }}">Ajouter au panier</a>
     </div>
     </section>
 {% endblock %}

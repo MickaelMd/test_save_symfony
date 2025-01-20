@@ -26,16 +26,16 @@ class TestController extends AbstractController
 
         // dd("test");
 
-        $session->set('test', [41, 42, 43, 48]);
+        // $session->set('test', [41, 42, 43, 48]);
 
 
-        $foo = $session->get('test');
+        // $foo = $session->get('test');
         
         // $session->invalidate();
 
         $foo[] = 00;
 
-        $session->set('test', $foo);
+        // $session->set('test', $foo);
 
         
         dd($request->getSession());
@@ -44,5 +44,17 @@ class TestController extends AbstractController
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
         ]);
+    }
+
+    #[Route('/test_reset', name: 'app_test_reset')]
+    public function reset(Request $request): Response
+    { 
+
+        $session = $request->getSession();
+            $session->invalidate();
+
+            return $this->redirectToRoute('app_test', [
+               
+            ]);
     }
 }

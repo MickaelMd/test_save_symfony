@@ -18,12 +18,22 @@ class PanierService
         if (!$this->session->has('Panier')) {
             $this->session->set('Panier', []);
         }
+
     }
 
-    public function manageTestArray(): void
+    public function AddToPanier($id): void
     {
-    
+        $panier = $this->session->get('Panier', []); 
+        $panier[] = $id;  
+        $this->session->set('Panier', $panier);  
     }
+
+    public function clearPanier(): void
+    {
+        
+        $this->session->remove('Panier');
+    }
+    
 
     public function getSessionData()
     {

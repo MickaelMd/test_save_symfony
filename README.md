@@ -1,25 +1,60 @@
 ## The District Symfony Dev-App
 
-- [x] Création de la bdd
-- [x] Ajout des données avec fixture
+### Base de données :
+
+- [x] Création de la base de données
+- [x] Ajout des données avec fixtures
+
+### Structure du site et gestion des accès :
+
+- [x] Mise en place de la structure du site
+- [x] Gestion de l'authentification
+- [x] Gestion des rôles et de l'accès aux pages
+- [ ] Page de gestion des plats et des commandes pour le `ROLE_CHEF` et `ROLE_ADMIN`
+
+### Mise en place de l'API avec Api Platform :
 
 - [x] Installation d'Api Platform
-- [x] Rendre visibles les entités Catégories et Plats.
-- [ ] Rendre disponible la documentation de L'Api via OpenAPI (ex Swagger).
+- [x] Rendre visibles les entités Catégories et Plats
+- [x] Utilisation de l'API dans l'application
+- [ ] Rendre disponible la documentation de l'API via OpenAPI (ex. Swagger)
 
-- [x] Mise en place de la structure du site.
-- [x] Gestion de l'authentification.
-- [x] Gestion des rôles et de l'accès aux pages.
-- [ ] Page de gestion des plats et des commandes par le ROLE_CHEF et ROLE_ADMIN
+### Panier et gestion des commandes :
 
-- [ ] Mise en place du panier (list, add, remove) dans un service.
-- [ ] Validation de la commande.
-- [ ] Gestion des mails via un EventSubscriber.
+- [ ] Mise en place du panier (list, add, remove) dans un `service`
+- [ ] Validation de la commande
+- [ ] Gestion des mails via un `EventSubscriber`
 
-- [x] Utilisation de bootstrap.
-- [x] Site entièrement responsive.
+### Design et responsivité :
+
+- [x] Utilisation de Bootstrap
+- [x] Site entièrement responsive
+
+---
 
 ### Exercices :
 
+Liens vers les exercices du module Dev-App
+
 - [Symfony](https://github.com/MickaelMd/AFPA_MS_Dev_App/tree/1.-Symfony)
 - [React](https://github.com/MickaelMd/AFPA_MS_Dev_App/tree/2.-React)
+
+Pour cloner une seule branche du dépôt :
+
+The District
+
+```bash
+git clone --single-branch --branch main https://github.com/MickaelMd/AFPA_MS_Dev_App.git
+```
+
+Exercices Symfony
+
+```bash
+bashgit clone --single-branch --branch 1.-Symfony https://github.com/MickaelMd/AFPA_MS_Dev_App.git
+```
+
+Exercices React
+
+```bash
+git clone --single-branch --branch 2.-React https://github.com/MickaelMd/AFPA_MS_Dev_App.git
+```

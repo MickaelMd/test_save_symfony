@@ -6,21 +6,27 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PlatRepository;
+use App\Service\PanierService;
 
 class PlatsController extends AbstractController
 {
+    private $panierService;
+
+    
+    public function __construct(PanierService $panierService)
+    {
+        $this->panierService = $panierService;
+    }
+
     #[Route('/plats', name: 'app_plats')]
     public function index(PlatRepository $platRepository): Response
     {
-       
         $plats = $platRepository->findBy(['active' => 1]);
-        // $plats = [];
 
         return $this->render('plats/index.html.twig', [
             'plats' => $plats,  
         ]);
     }
-
 
     #[Route('/plats/{id}', name: 'app_plat_show')]
     public function show(int $id, PlatRepository $platRepository): Response
@@ -36,4 +42,34 @@ class PlatsController extends AbstractController
         ]);
     }
 
+    #[Route('/plats/add/{id}', name: 'app_plat_show_add')]
+    public function addToPanier($id, PlatRepository $platRepository): Response
+    {
+
+
+        if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $this->addFlash('error', 'Vous devez être connecté pour pouvoir passer une commande.');
+            // $this->panierService->clearPanier();
+
+            return $this->redirectToRoute('app_plats');
+        }
+       
+        $plat = $platRepository->find($id);
+
+        if (!$plat) {
+
+            $this->addFlash('error', 'Une erreur est survenue, le plat n\'a pas été trouvé.');
+
+            return $this->redirectToRoute('app_plats');
+        }
+
+       
+        $this->panierService->AddToPanier($id);
+            
+        
+
+        $this->addFlash('success', 'Le produit a été ajouté à votre panier.');
+
+        return $this->redirectToRoute('app_plats');
+    }
 }
