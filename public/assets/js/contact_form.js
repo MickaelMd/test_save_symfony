@@ -1,4 +1,4 @@
-console.log("contact_form.js loaded");
+// console.log("contact_form.js loaded");
 
 const btn = document.getElementById("submit");
 

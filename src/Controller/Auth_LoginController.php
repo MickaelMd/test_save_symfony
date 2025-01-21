@@ -14,6 +14,7 @@ class Auth_LoginController extends AbstractController
     {
 
         if ($this->getUser()) {
+            $this->addFlash('error', 'Vous êtes déjà connecté.');
             return $this->redirectToRoute('app_index'); 
         }
 
@@ -34,5 +35,3 @@ public function logout()
     throw new \Exception('This should never be reached!');
 }
 }
-
-// https://symfony.com/doc/6.4/security.html#form-login

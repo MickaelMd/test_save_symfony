@@ -1,6 +1,6 @@
 api_platform:
   title: API The Disctrict
-  version: 0.0.1
+  version: 0.0.0
   defaults:
     stateless: true
     cache_headers:

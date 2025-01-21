@@ -21,6 +21,9 @@ class PlatsController extends AbstractController
     #[Route('/plats', name: 'app_plats')]
     public function index(PlatRepository $platRepository): Response
     {
+
+        
+
         $plats = $platRepository->findBy(['active' => 1]);
 
         return $this->render('plats/index.html.twig', [
@@ -48,28 +51,26 @@ class PlatsController extends AbstractController
 
 
         if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $this->addFlash('error', 'Vous devez être connecté pour pouvoir passer une commande.');
+            $this->addFlash('error', 'Vous devez être <a href="/login">connecté</a> pour pouvoir passer une commande.');
             // $this->panierService->clearPanier();
-
             return $this->redirectToRoute('app_plats');
         }
        
         $plat = $platRepository->find($id);
-
+        if ($id == "test") {
+            $this->addFlash('error', '???????????');
+            return $this->redirectToRoute('app_plats');
+        }
         if (!$plat) {
 
             $this->addFlash('error', 'Une erreur est survenue, le plat n\'a pas été trouvé.');
-
             return $this->redirectToRoute('app_plats');
         }
 
-       
+
         $this->panierService->AddToPanier($id);
-            
         
-
         $this->addFlash('success', 'Le produit a été ajouté à votre panier.');
-
         return $this->redirectToRoute('app_plats');
     }
 }

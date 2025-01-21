@@ -29,6 +29,7 @@ class Auth_RegisterController extends AbstractController
     {
 
         if ($this->getUser()) {
+            $this->addFlash('error', 'Vous êtes déjà connecté.');
             return $this->redirectToRoute('app_index'); 
         }
 

@@ -152,7 +152,7 @@ nav ul li a:hover {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 805px) {
   #logo_mobile_container {
     display: flex;
     align-items: center;
@@ -599,10 +599,10 @@ footer ul li a.active::after {
 /* ------------ !!!!!!!!!!! - Auth : Inscription / connexion - !!!!!!!!!!! ------------ */
 
 #auth_inscription input,
-#auth_login input {
+#auth_login input,
+.contact_form input {
   width: 100%;
   padding: 8px 12px;
-
   border: 1px solid #c4c4c4;
   border-radius: 50px;
   transition: all 0.3s ease;
@@ -613,7 +613,9 @@ footer ul li a.active::after {
 }
 
 #auth_inscription input:focus,
-#auth_login input:focus {
+#auth_login input:focus,
+.contact_form input:focus,
+.contact_form textarea:focus {
   border-color: #970747;
   box-shadow: 0 0 8px #970747;
   outline: none;
@@ -626,7 +628,9 @@ footer ul li a.active::after {
 }
 
 #auth_inscription input:hover,
-#auth_login input:hover {
+#auth_login input:hover,
+.contact_form input:hover,
+.contact_form textarea:hover {
   border-color: #970747;
 }
 #auth_inscription button {
@@ -637,23 +641,32 @@ footer ul li a.active::after {
   font-size: 16pt;
 }
 
-.btn_auth {
-  background-color: #ffcd83;
-  color: #000000;
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0px 0px 20px -18px;
-  transition: 150ms;
+.btn_auth,
+.contact_submit_btn {
+  background-color: #ffcd83 !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 16px !important;
+  box-shadow: 0px 0px 20px -18px !important;
+  transition: 150ms !important;
 }
 
-.btn_auth:hover {
-  background-color: #ffb340;
-  transition: 100ms;
-  color: black;
+.btn_auth:hover,
+.contact_submit_btn:hover {
+  background-color: #ffb340 !important;
+  color: black !important;
+  transition: 100ms !important;
 }
 
 .btn_auth:active,
-.btn_auth:focus {
+.btn_auth:focus,
+.contact_submit_btn:active,
+.contact_submit_btn:focus {
+  background-color: #ffdeab !important;
+  color: black !important;
+}
+
+.contact_submit_btn:valid {
   background-color: #ffdeab !important;
   color: black !important;
 }
@@ -704,4 +717,100 @@ footer ul li a.active::after {
   margin: auto;
   background-color: #ffcd83;
   color: #000;
+}
+
+/* ------------ !!!!!!!!!!! - Commande - !!!!!!!!!!! ------------ */
+
+#commande_section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.command_cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 460px;
+
+  background-color: rgba(255, 255, 255, 0.705);
+  margin: 15px;
+
+  -webkit-box-shadow: 0px 0px 16px -4px #000000;
+  box-shadow: 0px 0px 16px -4px #000000;
+}
+.command_cards input {
+  max-width: 100px;
+  width: 100%;
+  padding: 4px 6px;
+  border: 1px solid #c4c4c4;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.command_cards input:hover {
+  border-color: #970747;
+}
+.command_cards input:focus {
+  border-color: #970747;
+  box-shadow: 0 0 8px #970747;
+  outline: none;
+}
+
+.command_cards a,
+.command_info_btn_edit {
+  padding: 5px 10px;
+  text-decoration: none;
+  background-color: #ffcd83;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.command_info_btn_del:hover {
+  background-color: rgb(252, 69, 69);
+  transition: 100ms;
+}
+
+.command_info_btn_edit:hover {
+  background-color: rgb(69, 252, 69);
+  transition: 100ms;
+}
+
+/* ---- */
+
+#btn_command_valide {
+  background-color: rgb(69, 252, 69);
+}
+#btn_command_delete {
+  background-color: rgb(252, 69, 69);
+}
+
+#btn_command_valide,
+#btn_command_delete {
+  margin: 20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+#btn_command_valide:hover {
+  box-shadow: 0px 0px 28px -18px;
+  background-color: rgb(152, 253, 152);
+}
+
+#btn_command_delete:hover {
+  box-shadow: 0px 0px 28px -18px;
+  background-color: rgb(253, 156, 156);
 }

@@ -20,6 +20,7 @@ class GestionController extends AbstractController
     {
 
         if (!$this->isGranted('ROLE_CHEF') && !$this->isGranted('ROLE_ADMIN')) {
+            $this->addFlash('error', 'Vous n\'avez pas les droits pour accéder à cette page.');
             return $this->redirectToRoute('app_index');
         }
         

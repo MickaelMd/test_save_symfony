@@ -44,7 +44,7 @@ document.addEventListener("turbo:load", function () {
     }
   });
 
-  const mediaQuery = window.matchMedia("(min-width: 768px)");
+  const mediaQuery = window.matchMedia("(min-width: 805px)");
 
   function handleScreenChange(e) {
     if (e.matches) {
