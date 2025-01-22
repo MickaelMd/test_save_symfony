@@ -56,7 +56,6 @@ public function index(PlatRepository $platRepository): Response
     ]);
 }
 
-
     #[Route('/panier/del/{id}', name: 'app_panier_del')]
     public function del_plat(int $id): Response
     {
@@ -87,6 +86,7 @@ public function index(PlatRepository $platRepository): Response
     {
         $id = $request->request->get('id');
         $value = (int) $request->request->get('quantity');
+        
 
         if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
             $this->addFlash('error', 'Vous devez être <a href="/login">connecté</a> pour accéder au panier.');
@@ -119,9 +119,7 @@ public function index(PlatRepository $platRepository): Response
         $this->addFlash('success', 'La quantité du plat a été modifiée.');
         return $this->redirectToRoute('app_panier');
        
-           
     }
-
 
     #[Route('/panier/reset', name: 'app_panier_reset')]
     public function reset(): Response
@@ -143,18 +141,5 @@ public function index(PlatRepository $platRepository): Response
 
     }
 
-    #[Route('/panier/valider', name: 'app_panier_valider')]
-    public function valider(): Response
-    {
-        if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $this->addFlash('error', 'Vous devez être <a href="/login">connecté</a> pour accéder au panier.');
-            return $this->redirectToRoute('app_index');
-        }
-
-        if ($this->panierService->getPanier() == []) {
-            $this->addFlash('error', 'Votre panier est vide.');
-            return $this->redirectToRoute('app_plats');
-        }
-       
-    }
+   
 }

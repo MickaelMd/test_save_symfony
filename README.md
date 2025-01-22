@@ -21,8 +21,8 @@
 
 ### Panier et gestion des commandes :
 
-- [ ] Mise en place du panier (list, add, remove) dans un `service`
-- [ ] Validation de la commande
+- [x] Mise en place du panier (list, add, remove) dans un `service`
+- [x] Validation de la commande
 - [ ] Gestion des mails via un `EventSubscriber`
 
 ### Design et responsivité :

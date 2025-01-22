@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 use Symfony\Component\HttpFoundation\Request;
-
+use function Symfony\Component\Clock\now;
 
 class TestController extends AbstractController
 {
@@ -40,6 +40,16 @@ class TestController extends AbstractController
         
         dd($request->getSession());
         // dd("test");
+
+        
+
+// Get the current time as a DatePoint instance
+            $now = now();
+
+            $currentDate = new \DateTimeImmutable();
+            // dd( $currentDate->format('d-m-Y'));
+
+            // dd($now);
 
         return $this->render('test/index.html.twig', [
             'controller_name' => 'TestController',
