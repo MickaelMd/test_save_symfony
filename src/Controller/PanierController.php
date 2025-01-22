@@ -9,7 +9,6 @@ use App\Repository\PlatRepository;
 use App\Service\PanierService;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class PanierController extends AbstractController
 {
 
@@ -140,6 +139,5 @@ public function index(PlatRepository $platRepository): Response
         return $this->redirectToRoute('app_plats');
 
     }
-
-   
+  
 }

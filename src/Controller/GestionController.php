@@ -5,11 +5,9 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
 use App\Repository\CategorieRepository;
 use App\Repository\PlatRepository;
 use App\Repository\CommandeRepository;
-
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -24,12 +22,10 @@ class GestionController extends AbstractController
             return $this->redirectToRoute('app_index');
         }
         
-
         $plats = $platRepository->findAll();
         $categories = $categorieRepository->findAll();
         $commandes = $commandeRepository->findAll();
         
-
         return $this->render('gestion/index.html.twig', [
             'controller_name' => 'GestionController',
             'plats' => $plats,
@@ -43,6 +39,7 @@ public function updatePlat(Request $request, PlatRepository $platRepository, Ent
 {
 
     if (!$this->isGranted('ROLE_CHEF') && !$this->isGranted('ROLE_ADMIN')) {
+        $this->addFlash('error', 'Vous n\'avez pas les droits pour accéder à cette page.');
         return $this->redirectToRoute('app_index');
     }
 
@@ -54,9 +51,10 @@ public function updatePlat(Request $request, PlatRepository $platRepository, Ent
     $active = $request->request->get('active') === 'on';
 
     $plat = $platRepository->find($id);
+    
 
-    if (!$plat) {
-        $this->addFlash('danger', 'Plat non trouvé.');
+    if ($plat == null) {
+        $this->addFlash('error', 'Plat non trouvé.');
         return $this->redirectToRoute('app_gestion');
     }
 

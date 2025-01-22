@@ -704,7 +704,7 @@ footer ul li a.active::after {
   background-color: #ffcd83;
   border: none;
   width: 100%;
-  max-width: 600px;
+  max-width: 400px;
   padding: 8px 0px;
 }
 #plat-select:hover {
@@ -717,6 +717,13 @@ footer ul li a.active::after {
   margin: auto;
   background-color: #ffcd83;
   color: #000;
+}
+
+#img_box_gestion {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 4px;
 }
 
 /* ------------ !!!!!!!!!!! - Commande - !!!!!!!!!!! ------------ */
