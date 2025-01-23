@@ -53,8 +53,26 @@ document.addEventListener("DOMContentLoaded", function () {
       in_desc.value = "";
       in_prix.value = "";
       in_image.value = "";
-      show_img.src = "";
+      show_img.src = "/assets/img/bg3.jpeg";
       activeCheckbox.checked = false;
     }
   });
+
+  upload_img.addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        show_img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+
+      in_image.value = upload_img.value.split("\\").pop().replace(/ /g, "_");
+      console.log(upload_img.value);
+    } else {
+      show_img.src = "";
+    }
+  });
+
+  // --------------------------
 });

@@ -17,7 +17,7 @@
 - [x] Installation d'Api Platform
 - [x] Rendre visibles les entités Catégories et Plats
 - [x] Utilisation de l'API dans l'application
-- [ ] Rendre disponible la documentation de l'API via OpenAPI (ex. Swagger)
+- [x] Rendre disponible la documentation de l'API via OpenAPI (ex. Swagger) (-- Désactiver asset_mapper --)
 
 ### Panier et gestion des commandes :
 

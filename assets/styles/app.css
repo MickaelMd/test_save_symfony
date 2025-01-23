@@ -726,6 +726,12 @@ footer ul li a.active::after {
   border-radius: 4px;
 }
 
+#img_box_gestion img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
 /* ------------ !!!!!!!!!!! - Commande - !!!!!!!!!!! ------------ */
 
 #commande_section {
