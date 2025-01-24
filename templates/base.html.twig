@@ -23,7 +23,7 @@
     </head>
     <body>
 
-<nav class="font-title">
+<nav class="font-title d-flex justify-content-between align-items-center position-fixed">
 <div id="logo_mobile_container">
     <a href="{{ path('app_index') }}">
         <img src={{asset('assets/img/the_district_brand/nav_logo.svg') }} alt="Logo" id="logo_nav">
@@ -38,12 +38,12 @@
         </label>
     </div>
 
-<a id="cart_logo_mobile" href="{{ path('app_panier') }}">
+<a id="cart_logo_mobile"  href="{{ path('app_panier') }}">
         <img src={{asset('/assets/img/logo/shoppinglogo.png')}} alt="Shopping Logo" id="shopping_nav">
     </a>
 
 </div>
-    <ul>
+    <ul class="list-unstyled d-flex">
         <li><a href="{{ path('app_index') }}">Accueil</a></li>
         <li><a href="{{ path('app_categories') }}">Catégories</a></li>
         <li><a href="{{ path('app_plats') }}">Plats</a></li>
@@ -63,7 +63,7 @@
 </nav>
 
 <div class="container">
-<header class="mt-5 d-flex flex-column justify-content-center align-items-center">
+<header class="position-relative mt-5 d-flex flex-column justify-content-center align-items-center">
     <a href="{{ path('app_index') }}">
         <img src="/assets/img/the_district_brand/logo_transparent.png" alt="Logo" id="logo_header">
     </a>
@@ -73,10 +73,10 @@
 </header>
         {% block body %}{% endblock %}
 </div>
-<footer>
+<footer class="d-flex flex-column">
     <div id="footer_container">
         <div id="footer_links_container" class="mt-3">
-            <ul>
+            <ul class="list-unstyled d-flex">
                 <li><a href="{{ path('app_index') }}">Accueil</a></li>
                 <li><a href="{{ path('app_categories') }}">Catégories</a></li>
                 <li><a href="{{ path('app_plats') }}">Plats</a></li>
@@ -90,7 +90,7 @@
                 </li>
             </ul>
         </div>
-        <div id="footer_social_container">
+        <div id="footer_social_container" class="d-flex justify-content-center">
             <ul>
                 <li><a href="https://www.facebook.com/"><img src={{asset('/assets/img/social_link/facebook_icon.svg')}} alt="Facebook" id="facebook"></a></li>
                 <li><a href="https://www.instagram.com/"><img src={{asset('/assets/img/social_link/instagram_icon.svg')}} alt="Instagram" id="instagram"></a></li>
@@ -98,7 +98,7 @@
             </ul>
         </div>
     </div>
-    <div id="footer_l-p_container">
+    <div id="footer_l-p_container" class="d-flex justify-content-center">
         <ul>
         <li><a href="{{ path('app_politique_de_confidentialite')}}">Politique de confidentialité</a></li>
         <li><a href="{{ path('app_mentions_legales')}}">Mentions légales</a></li>
@@ -107,13 +107,13 @@
         <li> <a href="{{ path('app_apropos')}}">À propos</a></li>
         </ul>
     </div>
-    <div id="footer_legal_container" class="mb-2 text-light">
+    <div id="footer_legal_container" class="mb-2 text-light text-center">
         <p>&copy; 2025 The District. Tous droits réservés.</p>
     </div>
 </footer>
 
      {% if is_granted('ROLE_CHEF') or is_granted('ROLE_ADMIN') %}
-        <a class="btn_access" href="{{ path('app_gestion') }}">GESTION</a>
+        <a class="btn_access position-fixed text-decoration-none text-black border-0 cursor-pointer" href="{{ path('app_gestion') }}">GESTION</a>
           {% endif %}
 
     </body>

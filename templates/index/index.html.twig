@@ -29,7 +29,7 @@
             <div class="col-4">
             <a href="{{ path('app_categories', {'id': category.id}) }}#link-cat-{{ category.id }}" class="text-black text-decoration-none link-opacity-75-hover">
                 <div class="card carousel_back">
-                    <img src="{{ asset('/assets/img/category/' ~ category.image) }}" class="card-img-top fixed_img_carousel_index" alt="Image de la catégorie {{ category.libelle }}">
+                    <img src="{{ asset('/assets/img/category/' ~ category.image) }}" class="card-img-top fixed_img_carousel_index w-100 object-fit-cover" alt="Image de la catégorie {{ category.libelle }}">
                     <div class="card-body">
                         <h5 class="card-title text-center">
                         {{ category.libelle }}
@@ -57,24 +57,24 @@
 </div>
 
 <div class="d-flex justify-content-center mt-3">
- <a id="btn_accueil_plats" class="m-3 mb-5 text-center" href="{{path('app_categories')}}">Découvrir nos catégories et leurs plats associés</a>
+ <a id="btn_accueil_plats" class="m-3 mb-5 text-center d-inline-block text-decoration-none text-black border-0 cursor-pointer" href="{{path('app_categories')}}">Découvrir nos catégories et leurs plats associés</a>
 </div>
 
 
 <h2 class="text-center">Nos plats</h2>
-<section id="cards_index_plat_general">
+<section id="cards_index_plat_general" class="d-flex flex-row flex-wrap justify-content-center">
 
     {% for plat in plats %}
       
-      <div class="cards_index_plat">
+      <div class="cards_index_plat d-flex flex-column align-items-center">
       
         <h3 class="text-center pt-1 pb-1 mt-2"> {{plat.libelle}} </h3>
 
-        <div class="cards_index_plat_img">
+        <div class="cards_index_plat_img  overflow-hidden">
         <img src="{{ asset('/assets/img/food/' ~ plat.image) }}"  alt="Image {{plat.libelle}}"> 
         </div>
 
-       <a class="btn_commande_plat" href="{{ path('app_plat_show', {'id': plat.id}) }}">Commander</a>
+       <a class="btn_commande_plat" href="{{ path('app_plat_show', {'id': plat.id}) }}#commande_link">Commander</a>
       </div>
 
     {% else %}
@@ -82,7 +82,7 @@
     {% endfor %}
 </section>
 <div class="d-flex justify-content-center">
- <a id="btn_accueil_plats" class="m-3 mb-5 text-center" href="{{path('app_plats')}}">Découvrir l'intégralité de nos plats</a>
+ <a id="btn_accueil_plats" class="m-3 mb-5 text-center d-inline-block text-decoration-none text-black border-0 cursor-pointer" href="{{path('app_plats')}}">Découvrir l'intégralité de nos plats</a>
 </div>
 
 {% endblock %}

@@ -5,19 +5,19 @@
 {% block body %}
 
 
-<section id="categories_section">
+<section id="categories_section" class="d-flex flex-row flex-wrap justify-content-center">
 <h2 class="m-3">Nos catégories et plats associés</h2>
     {% for category in categories %}
-        <div class="cards_index_categories">
+        <div class="cards_index_categories d-flex flex-column align-items-center">
             <h1 class="mt-3" id="link-cat-{{ category.id }}">{{ category.libelle }}</h1>
-            <div class="cards_index_categories_content">
+            <div class="cards_index_categories_content d-flex flex-row justify-content-center align-items-center">
                 <div class="cards_index_categories_img">
                     <img src="{{ asset('/assets/img/category/' ~ category.image) }}" alt="Image {{ category.libelle }}"> 
                 </div>
                 <ul>
                     {% for plat in category.plats %}
                         <li>
-                           <a href="{{ path('app_plat_show', {'id': plat.id}) }}">{{ plat.libelle }} - {{ plat.prix }}€</a> 
+                           <a href="{{ path('app_plat_show', {'id': plat.id}) }}#commande_link">{{ plat.libelle }} - {{ plat.prix }}€</a> 
                         </li>
                     {% else %}
                         <li>Aucun plat disponible pour cette catégorie.</li>

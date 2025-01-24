@@ -32,10 +32,10 @@ class GestionController extends AbstractController
         $user = $utilisateurRepository->findAll();
         $detail = $detailRepository->findAll();
 
-        // $test_commande = $commandeRepository->findBy(['utilisateur' => $user, 'details' => $detail]);
-        
-        // dd($test_commande);
-        // dd($commandes, $user, $detail);
+        $detailsParCommande = [];
+        foreach ($commandes as $commande) {
+            $detailsParCommande[$commande->getId()] = $detailRepository->findBy(['commande' => $commande]);
+        }
 
         return $this->render('gestion/index.html.twig', [
             'controller_name' => 'GestionController',
@@ -43,6 +43,8 @@ class GestionController extends AbstractController
             'categories' => $categories,
             'commandes' => $commandes,
             'user' => $user,
+            'detailsParCommande' => $detailsParCommande,
+
         ]);
     }
 

@@ -23,19 +23,19 @@
 
 {# ---------------------- #}
 
-<section id="cards_index_plat_general">
+<section id="cards_index_plat_general" class="d-flex flex-row flex-wrap justify-content-center">
 
     {% for plat in plats %}
       
-      <div class="cards_index_plat">
+      <div class="cards_index_plat d-flex flex-column align-items-center" >
       
         <h3 class="text-center pt-1 pb-1 mt-2"> {{plat.libelle}} </h3>
 
-        <div class="cards_index_plat_img">
+        <div class="cards_index_plat_img overflow-hidden">
         <img src="{{ asset('/assets/img/food/' ~ plat.image) }}"  alt="Image {{plat.libelle}}"> 
         </div>
 
-       <a class="btn_commande_plat" href="{{ path('app_plat_show', {'id': plat.id}) }}">Commander</a>
+       <a class="btn_commande_plat" href="{{ path('app_plat_show', {'id': plat.id}) }}#commande_link">Commander</a>
       </div>
 
     {% else %}
