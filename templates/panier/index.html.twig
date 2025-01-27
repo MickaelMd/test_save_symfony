@@ -10,12 +10,11 @@
         </div>
     {% endfor %}
 
-
 {% for message in app.flashes('error') %}
     <div class="alert alert-danger">
         {{ message|raw }}
     </div>
-{% endfor %}
+    {% endfor %}
 
 <h2 class="m-3 text-center">Votre commande</h2>
 
@@ -48,7 +47,7 @@
             </div>
             <div>
             <a class="command_info_btn_del" href="{{ path('app_panier_del', {'id': item.plat.id}) }}">Supprimer</a>
-            <button data-turbo="false" type="submit" class="command_info_btn_edit">Modifier</button>
+            <button type="submit" class="command_info_btn_edit">Modifier</button>
             </div>
             </form>
      </div>
@@ -72,11 +71,9 @@
   <div class="d-flex justify-content-center mt-3">
   
   <a id="btn_command_delete" href=" {{path('app_panier_reset')}} ">Vider le panier</a>
-<button id="btn_command_valide" data-turbo="false" type="submit" class="btn btn-primary">Valider la commande</button>  </form>
+<button id="btn_command_valide" type="submit" class="btn btn-primary">Valider la commande</button>  </form>
   </div>
   
-
 </section>
-
 
 {% endblock %}

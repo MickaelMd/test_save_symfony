@@ -10,7 +10,7 @@ class PanierService
 
     public function __construct(RequestStack $requestStack)
     {
-        //    $this->session = $requestStack->getSession();         // Probleme Migrate session <----------------
+        //    $this->session = $requestStack->getSession();         // Probleme de session cli <----------------
         $this->session = $requestStack->getCurrentRequest() ? $requestStack->getSession() : null; // Solution <--
 
     }
