@@ -13,6 +13,7 @@ class PanierService
         //    $this->session = $requestStack->getSession();         // Probleme de session cli <----------------
         $this->session = $requestStack->getCurrentRequest() ? $requestStack->getSession() : null; // Solution <--
 
+        
     }
 
     public function initializePanier(): void
