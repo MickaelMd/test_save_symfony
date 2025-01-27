@@ -10,7 +10,7 @@
 - [x] Mise en place de la structure du site
 - [x] Gestion de l'authentification
 - [x] Gestion des rôles et de l'accès aux pages
-- [ ] Page de gestion des plats et des commandes pour le `ROLE_CHEF` et `ROLE_ADMIN`
+- [x] Page de gestion des plats et des commandes pour le `ROLE_CHEF` et `ROLE_ADMIN`
 
 ### Mise en place de l'API avec Api Platform :
 
@@ -23,7 +23,7 @@
 
 - [x] Mise en place du panier (list, add, remove) dans un `service`
 - [x] Validation de la commande
-- [ ] Gestion des mails via un `EventSubscriber`
+- [x] Gestion des mails via un `EventSubscriber`
 
 ### Design et responsivité :
 
