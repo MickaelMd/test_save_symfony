@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 16 jan. 2025 à 13:18
+-- Généré le : lun. 27 jan. 2025 à 11:54
 -- Version du serveur : 10.11.8-MariaDB-0ubuntu0.24.04.1
 -- Version de PHP : 8.3.6
 
@@ -91,6 +91,18 @@ CREATE TABLE `detail` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `doctrine_migration_versions`
+--
+
+CREATE TABLE `doctrine_migration_versions` (
+  `version` varchar(191) NOT NULL,
+  `executed_at` datetime DEFAULT NULL,
+  `execution_time` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `messenger_messages`
 --
 
@@ -159,9 +171,9 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id`, `email`, `roles`, `password`, `nom`, `prenom`, `telephone`, `adresse`, `cp`, `ville`) VALUES
-(16, 'CompteClient@TestDev.com', '[\"ROLE_CLIENT\"]', '$2y$13$i9GKJHukVM/p9sSOuY90M.CYeJOysGINIudX0Nm5HiH.hM9stNuF2', 'Client', 'Client', '0707070707', '00 Rue Du Client', '00000', 'Client'),
-(17, 'CompteChef@TestDev.com', '[\"ROLE_CHEF\"]', '$2y$13$qAJHqNNjYSfUrQsDi6TQOeQnmTLL4fdPtFscmt59fB2YV20ZB0sYS', 'Chef', 'Chef', '0707070707', '00 Rue Du Chef', '00000', 'Chef'),
-(18, 'CompteAdmin@TestDev.com', '[\"ROLE_ADMIN\"]', '$2y$13$s/LLEvM/ORM0FsQiPFORV.eC6bry6xtsXQPWjMJyuOCI6/6NP.P0G', 'Admin', 'Root', '0707070707', '150 Rue de Admin', '00000', 'Admin');
+(1, 'CompteClient@TestDev.com', '[\"ROLE_CLIENT\"]', '$2y$13$i9GKJHukVM/p9sSOuY90M.CYeJOysGINIudX0Nm5HiH.hM9stNuF2', 'Client', 'Client', '0707070707', '00 Rue Du Client', '00000', 'Client'),
+(2, 'CompteChef@TestDev.com', '[\"ROLE_CHEF\"]', '$2y$13$qAJHqNNjYSfUrQsDi6TQOeQnmTLL4fdPtFscmt59fB2YV20ZB0sYS', 'Chef', 'Chef', '0707070707', '00 Rue Du Chef', '00000', 'Chef'),
+(3, 'CompteAdmin@TestDev.com', '[\"ROLE_ADMIN\"]', '$2y$13$s/LLEvM/ORM0FsQiPFORV.eC6bry6xtsXQPWjMJyuOCI6/6NP.P0G', 'Admin', 'Root', '0707070707', '150 Rue de Admin', '00000', 'Admin');
 
 --
 -- Index pour les tables déchargées
@@ -193,6 +205,12 @@ ALTER TABLE `detail`
   ADD PRIMARY KEY (`id`),
   ADD KEY `IDX_2E067F93D73DB560` (`plat_id`),
   ADD KEY `IDX_2E067F9382EA2E54` (`commande_id`);
+
+--
+-- Index pour la table `doctrine_migration_versions`
+--
+ALTER TABLE `doctrine_migration_versions`
+  ADD PRIMARY KEY (`version`);
 
 --
 -- Index pour la table `messenger_messages`
@@ -261,7 +279,7 @@ ALTER TABLE `plat`
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
