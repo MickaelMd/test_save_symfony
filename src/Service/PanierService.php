@@ -13,7 +13,6 @@ class PanierService
         //    $this->session = $requestStack->getSession();         // Probleme de session cli <----------------
         $this->session = $requestStack->getCurrentRequest() ? $requestStack->getSession() : null; // Solution <--
 
-        
     }
 
     public function initializePanier(): void
@@ -26,6 +25,11 @@ class PanierService
     public function getPanier(): array
     {
         return $this->session->get('Panier', []);
+    }
+
+    public function getPanierCount(): int
+    {
+        return count($this->getPanier());
     }
 
     public function getPanierQuantites(): array
