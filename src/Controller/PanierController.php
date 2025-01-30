@@ -48,10 +48,13 @@ public function index(PlatRepository $platRepository): Response
         $total += $plat->getPrix() * $quantite;
     }
 
+
+
     return $this->render('panier/index.html.twig', [
         'controller_name' => 'PanierController',
         'plats' => $platsAvecQuantites,
         'total' => $total,
+        'user' => $this->getUser(),
     ]);
 }
 

@@ -10,6 +10,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use App\Service\PanierService;
 use App\Repository\PlatRepository;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 #[AsDoctrineListener(event: Events::postPersist)]
 class CommandeSubscriber
@@ -91,7 +92,10 @@ class CommandeSubscriber
             $utilisateur->getVille()
         ));
     
-
-        $this->mailer->send($email);
+        try {
+            $this->mailer->send($email);
+        } catch (TransportExceptionInterface $e) {
+            throw new \RuntimeException('Erreur lors de l\'envoi de l\'email.');
+        }
     }
 }

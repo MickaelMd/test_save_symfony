@@ -757,3 +757,19 @@ footer ul li a.active::after {
   box-shadow: 0px 0px 28px -18px;
   background-color: rgb(253, 156, 156);
 }
+
+#btn_edit_adresse {
+  background-color: #ffcd83;
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+#btn_edit_adresse:hover {
+  background-color: #ffb340;
+}

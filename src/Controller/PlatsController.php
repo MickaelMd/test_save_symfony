@@ -23,7 +23,6 @@ class PlatsController extends AbstractController
     {
 
         
-
         $plats = $platRepository->findBy(['active' => 1]);
 
         return $this->render('plats/index.html.twig', [
@@ -67,10 +66,9 @@ class PlatsController extends AbstractController
             return $this->redirectToRoute('app_plats');
         }
 
-
         $this->panierService->AddToPanier($id);
         
-        $this->addFlash('success', 'Le produit a été ajouté à votre panier.');
+        $this->addFlash('success', 'Le produit a été ajouté à votre <a href="/panier">panier</a>');
         return $this->redirectToRoute('app_plats');
     }
 }
