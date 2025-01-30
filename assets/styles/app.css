@@ -476,6 +476,7 @@ footer ul li a.active::after {
   height: 300px;
   overflow: hidden;
   border-radius: 4px;
+  margin: 0px 0px 30px 10px;
   background-color: #f0f0f0;
 }
 
@@ -527,6 +528,17 @@ footer ul li a.active::after {
     transition: 150ms;
     display: inline-block;
     text-align: center;
+  }
+}
+
+@media (max-width: 450px) {
+  .cards_index_categories_img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .cards_index_categories_content a {
+    padding: 5px 10px;
   }
 }
 

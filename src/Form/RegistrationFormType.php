@@ -12,13 +12,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Regex;
-
 use Symfony\Component\Validator\Constraints\Callback;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 
 class RegistrationFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('email', EmailType::class, [
@@ -124,20 +123,21 @@ class RegistrationFormType extends AbstractType
             ]);
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Utilisateur::class,
         ]);
     }
-    public function validatePasswordConfirmation($confirmPassword, ExecutionContextInterface $context)
-{
-    $password = $context->getRoot()->get('password')->getData();
 
-    if ($confirmPassword !== $password) {
-        $context->buildViolation('Les mots de passe ne correspondent pas.')
-            ->atPath('confirmPassword')
-            ->addViolation();
+    public function validatePasswordConfirmation($confirmPassword, ExecutionContextInterface $context): void
+    {
+        $password = $context->getRoot()->get('password')->getData();
+
+        if ($confirmPassword !== $password) {
+            $context->buildViolation('Les mots de passe ne correspondent pas.')
+                ->atPath('confirmPassword')
+                ->addViolation();
+        }
     }
-}
 }

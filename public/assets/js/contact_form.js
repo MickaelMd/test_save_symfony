@@ -1,5 +1,3 @@
-// console.log("contact_form.js loaded");
-
 const btn = document.getElementById("submit");
 
 const objet = document.getElementById("contact_form_objet");

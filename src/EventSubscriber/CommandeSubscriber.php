@@ -4,14 +4,15 @@ namespace App\EventSubscriber;
 
 use App\Entity\Commande;
 use Doctrine\ORM\Events;
-use Doctrine\Bundle\DoctrineBundle\EventSubscriber\EventSubscriberInterface;
+use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\Persistence\Event\LifecycleEventArgs;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use App\Service\PanierService;
 use App\Repository\PlatRepository;
 
-class CommandeSubscriber implements EventSubscriberInterface
+#[AsDoctrineListener(event: Events::postPersist)]
+class CommandeSubscriber
 {
     private $panierService;
     private $platRepository;

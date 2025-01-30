@@ -51,7 +51,6 @@ document.addEventListener("turbo:load", function () {
   let angle = 0;
 
   input.addEventListener("click", () => {
-    console.log("test");
     i++;
     if (i === 10) {
       for (let i = 0; i < 100; i++) {

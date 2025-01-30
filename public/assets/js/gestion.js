@@ -66,9 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         show_img.src = event.target.result;
       };
       reader.readAsDataURL(file);
-
       in_image.value = upload_img.value.split("\\").pop().replace(/ /g, "_");
-      console.log(upload_img.value);
     } else {
       show_img.src = "";
     }
