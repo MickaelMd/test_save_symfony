@@ -50,7 +50,7 @@ class PlatsController extends AbstractController
 
 
         if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
-            $this->addFlash('error', 'Vous devez être <a href="/login">connecté</a> pour pouvoir passer une commande.');
+            $this->addFlash('error', 'Vous devez être <a href="/login">connecté</a> pour pouvoir passer une commande. <script> localStorage.setItem("panier", JSON.stringify([]));</script>');
             // $this->panierService->clearPanier();
             return $this->redirectToRoute('app_plats');
         }
@@ -68,7 +68,10 @@ class PlatsController extends AbstractController
 
         $this->panierService->AddToPanier($id);
         
-        $this->addFlash('success', 'Le produit a été ajouté à votre <a href="/panier">panier</a>');
+        $this->addFlash('success', 'Le produit a été ajouté à votre <a href="/panier">panier</a> <script> localStorage.setItem(
+  "panier",
+  JSON.stringify([...JSON.parse(localStorage.getItem("panier") || "[]"), '. $id . '])
+); </script>');    
         return $this->redirectToRoute('app_plats');
     }
 }

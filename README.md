@@ -25,6 +25,12 @@
 - [x] Validation de la commande
 - [x] Gestion des mails via un `EventSubscriber`
 
+### Gestion du profil utilisateur :
+
+- [] Modification des informations du compte
+- [] Suppression du compte
+- [] Historique des commandes
+
 ### Design et responsivité :
 
 - [x] Utilisation de Bootstrap

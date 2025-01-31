@@ -33,7 +33,7 @@ class CommandeController extends AbstractController
         }
 
         if ($this->panierService->getPanier() == []) {
-            $this->addFlash('error', 'Votre panier est vide.');
+            $this->addFlash('error', 'Votre panier est vide. <script> localStorage.setItem("panier", JSON.stringify([]));</script>');
             return $this->redirectToRoute('app_plats');
         }
 
@@ -78,7 +78,7 @@ class CommandeController extends AbstractController
                  $this->entityManager->commit(); 
                  $this->panierService->clearPanier();
      
-                 $this->addFlash('success', 'Votre commande a été validée avec succès.');
+                 $this->addFlash('success', 'Votre commande a été validée avec succès. <script> localStorage.setItem("panier", JSON.stringify([]));</script>');
              } catch (\Exception $e) {
                  $this->entityManager->rollback(); 
                  $this->addFlash('error', 'Une erreur est survenue lors de la validation de votre commande : ' . $e->getMessage());

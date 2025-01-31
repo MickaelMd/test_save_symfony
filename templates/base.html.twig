@@ -35,7 +35,7 @@
 <nav class="font-title d-flex justify-content-between align-items-center position-fixed">
 <div id="logo_mobile_container">
     <a href="{{ path('app_index') }}">
-        <img src={{asset('assets/img/the_district_brand/nav_logo.svg') }} alt="Logo" id="logo_nav">
+        <img src={{asset('assets/img/the_district_brand/nav_logo.svg') }} alt="Logo" id="logo_nav" >
     </a>
 
  <div id="btn-nav-div">  
@@ -48,7 +48,7 @@
     </div>
 
 <a id="cart_logo_mobile"  href="{{ path('app_panier') }}">
-        <img src={{asset('/assets/img/logo/shoppinglogo.png')}} alt="Shopping Logo" id="shopping_nav">
+        <img src={{asset('/assets/img/logo/shoppinglogo.png')}} alt="Shopping Logo" id="shopping_nav" class="shopping_nav_logo">
     </a>
 
 </div>
@@ -67,7 +67,7 @@
     </ul>
 
     <a id="cart_logo_desktop" href="{{ path('app_panier') }}">
-        <img  src={{asset('/assets/img/logo/shoppinglogo.png')}} alt="Shopping Logo" id="shopping_nav">
+        <img  src={{asset('/assets/img/logo/shoppinglogo.png')}} alt="Shopping Logo" id="shopping_nav" class="shopping_nav_logo">
     </a>
 </nav>
 
@@ -80,8 +80,28 @@
     <div id="search_result">
   </div>
 </header>
+
+{% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message|raw }}
+        </div>
+    {% endfor %}
+
+{% for message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ message|raw }}
+    </div>
+{% endfor %}
+
         {% block body %}{% endblock %}
 </div>
+
+<div id="cart_logo_footer">
+  <a href="{{ path('app_panier') }}">
+    <img src="{{ asset('/assets/img/logo/shoppinglogo.png') }}" alt="Shopping Logo" id="shopping_nav">
+  </a>
+</div>
+
 <footer class="d-flex flex-column">
     <div id="footer_container">
         <div id="footer_links_container" class="mt-3">
@@ -124,6 +144,13 @@
      {% if is_granted('ROLE_CHEF') or is_granted('ROLE_ADMIN') %}
         <a class="btn_access position-fixed text-decoration-none text-black border-0 cursor-pointer" href="{{ path('app_gestion') }}">GESTION</a>
           {% endif %}
+
+           {% for message in app.flashes('panier') %}
+            {{ message|raw }}
+        {% endfor %}
+
+        {{ reset_panier_if_guest()|raw }}
+
 
     </body>
 </html>

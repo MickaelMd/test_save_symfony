@@ -146,6 +146,25 @@ nav ul li a:hover {
   display: none;
 }
 
+#cart_logo_footer {
+  position: fixed;
+  right: 3%;
+  transform: translateX(-50%);
+  transition: height 0.3s ease;
+  border-radius: 50%;
+  padding: 3px;
+  background-color: #9707487a;
+  transition: 150ms;
+}
+#cart_logo_footer img {
+  width: 60px;
+  height: 60px;
+  filter: invert(1);
+}
+#cart_logo_footer:hover {
+  background-color: #970748;
+}
+
 @media (max-width: 805px) {
   #logo_mobile_container {
     display: flex;

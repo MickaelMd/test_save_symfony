@@ -11,19 +11,6 @@
 
 {% block body %}
 
-{% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
-
-
-{% for message in app.flashes('error') %}
-    <div class="alert alert-danger">
-        {{ message|raw }}
-    </div>
-{% endfor %}
-
 <h2 class="mt-3 text-center">Gestion des commandes</h2>
 
 <div id="gestion_div_select" class="d-flex justify-content-center mt-3">
@@ -104,7 +91,6 @@
         </div>
     {% endfor %}
 </div>
-
 
 
 <h2 class="mt-3 text-center">Gestion des plats</h2>

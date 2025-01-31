@@ -15,8 +15,6 @@ class IndexController extends AbstractController
     public function index(PlatRepository $platRepository, CategorieRepository $categorieRepository): Response
     {
 
-
-
         $plats = $platRepository->findBy(['active' => 1], ['libelle' => 'ASC'], 5);
         $categories = $categorieRepository->findBy(['active' => 1]);
 

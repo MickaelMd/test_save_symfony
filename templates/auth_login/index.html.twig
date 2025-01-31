@@ -7,28 +7,28 @@
 
 <section id="auth_login">
 
-<h2 class="text-center mt-3">Connexion</h2>
+    <h2 class="text-center mt-3">Connexion</h2>
 
-{% if error %}
-    <div class="error_auth_login text-center text-danger">{{ error.messageKey == 'Invalid credentials.' ? 'Identifiants invalides. Veuillez vérifier votre email et votre mot de passe.' : error.messageKey }}</div>
-{% endif %}
+    {% if error %}
+        <div class="error_auth_login text-center text-danger">{{ error.messageKey == 'Invalid credentials.' ? 'Identifiants invalides. Veuillez vérifier votre email et votre mot de passe.' : error.messageKey }}</div>
+    {% endif %}
 
+    <form action="{{ path('app_login') }}" method="post">
+        <div class="form-group">
+            <label for="username">Email:</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="_password" required>
+        </div>
+            <input type="hidden" name="_target_path" value="/">
 
-<form action="{{ path('app_login') }}" method="post">
- <div class="form-group">
-    <label for="username">Email:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required>
-</div>
- <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="_password" required>
-</div>
-    <input type="hidden" name="_target_path" value="/">
-
-    <button type="submit" class="btn mt-3 mb-3 btn-primary w-100 btn_auth">Se connecter</button>
-</form>
-<div class="text-center mb-3 h3">
-<a href="{{ path('app_auth')}}">Inscription</a>
-</div>
+            <button type="submit" class="btn mt-3 mb-3 btn-primary w-100 btn_auth">Se connecter</button>
+    </form>
+    <div class="text-center mb-3 h3">
+        <a href="{{ path('app_auth')}}">Inscription</a>
+    </div>
+    
 </section>
 {% endblock %}

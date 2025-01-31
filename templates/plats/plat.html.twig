@@ -4,12 +4,12 @@
 
 {% block body %}
 <section id="plat_show_card" class="d-flex flex-column justify-content-center align-items-center"> 
-    <div id="plat_show_card_enter" class="d-flex flex-column justify-content-center align-items-center" >
-    <h1 class="text-center" id="commande_link">{{ plat.libelle }}</h1>
-    <img src="{{ asset('/assets/img/food/' ~ plat.image) }}" alt="Image {{ plat.libelle }}">
-    <p class="mt-3">{{ plat.description }}</p>
-    <p><strong>Prix : </strong>{{ plat.prix }} €</p>
-    <a class="btn_commande_plat" href="{{ path('app_plat_show_add', {'id': plat.id}) }}">Ajouter au panier</a>
-    </div>
+        <div id="plat_show_card_enter" class="d-flex flex-column justify-content-center align-items-center" >
+            <h1 class="text-center" id="commande_link">{{ plat.libelle }}</h1>
+            <img src="{{ asset('/assets/img/food/' ~ plat.image) }}" alt="Image {{ plat.libelle }}">
+            <p class="mt-3">{{ plat.description }}</p>
+            <p><strong>Prix : </strong>{{ plat.prix }} €</p>
+            <a class="btn_commande_plat" href="{{ path('app_plat_show_add', {'id': plat.id}) }}">Ajouter au panier</a>
+        </div>
     </section>
 {% endblock %}
