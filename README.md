@@ -27,9 +27,9 @@
 
 ### Gestion du profil utilisateur :
 
-- [] Modification des informations du compte
-- [] Suppression du compte
-- [] Historique des commandes
+- [ ] Modification des informations du compte
+- [ ] Suppression du compte
+- [ ] Historique des commandes
 
 ### Design et responsivité :
 
