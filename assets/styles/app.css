@@ -148,7 +148,7 @@ nav ul li a:hover {
 
 #cart_logo_footer {
   position: fixed;
-  right: 3%;
+  right: 2%;
   transform: translateX(-50%);
   transition: height 0.3s ease;
   border-radius: 50%;
@@ -166,6 +166,11 @@ nav ul li a:hover {
 }
 
 @media (max-width: 805px) {
+  #cart_logo_footer img {
+    width: 44px;
+    height: 44px;
+  }
+
   #logo_mobile_container {
     display: flex;
     align-items: center;
@@ -791,4 +796,31 @@ footer ul li a.active::after {
 
 #btn_edit_adresse:hover {
   background-color: #ffb340;
+}
+
+/* ------------ !!!!!!!!!!! - Profil - !!!!!!!!!!! ------------ */
+
+.card_profil_commande {
+  background-color: rgba(255, 255, 255, 0.705);
+  margin: 15px;
+  -webkit-box-shadow: 0px 0px 16px -4px #000000;
+  box-shadow: 0px 0px 16px -4px #000000;
+}
+
+#btn_delete_profil,
+#btn_confirm_profil {
+  background-color: rgb(252, 69, 69);
+  text-decoration: none;
+  padding: 15px 40px;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+#btn_delete_profil:hover,
+#btn_confirm_profil:hover {
+  background-color: rgb(253, 156, 156);
 }

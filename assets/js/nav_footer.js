@@ -26,11 +26,12 @@ document.addEventListener("turbo:load", function () {
 
         setInterval(() => {
           img.style.transition = "transform 0.3s ease-in-out";
-          img.style.transform = "translateY(7px)";
+          img.style.transform = "translateY(6px)";
+
           setTimeout(() => {
             img.style.transform = "translateY(0px)";
           }, 300);
-        }, 2500);
+        }, 1300);
       });
     } else {
       localStorage.setItem("panierActive", false);
@@ -54,7 +55,10 @@ document.addEventListener("turbo:load", function () {
         nav.style.top = "-100px";
         nav.style.transition = "1000ms";
 
-        if (panierActive == "true") {
+        if (
+          panierActive == "true" &&
+          !window.location.href.includes("panier")
+        ) {
           btn_panier.style.display = "block";
           btn_panier.style.transition = "300ms";
           btn_panier.style.bottom = "100px";
@@ -70,7 +74,10 @@ document.addEventListener("turbo:load", function () {
         nav.style.top = "0";
         nav.style.transition = "300ms";
 
-        if (panierActive == "true") {
+        if (
+          panierActive == "true" &&
+          !window.location.href.includes("panier")
+        ) {
           btn_panier.style.display = "block";
           btn_panier.style.transition = "300ms";
           btn_panier.style.bottom = "-100px";

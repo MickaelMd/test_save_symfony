@@ -29,7 +29,7 @@
 
 - [ ] Modification des informations du compte
 - [ ] Suppression du compte
-- [ ] Historique des commandes
+- [x] Historique des commandes
 
 ### Design et responsivité :
 
