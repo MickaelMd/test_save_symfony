@@ -164,8 +164,14 @@ nav ul li a:hover {
 #cart_logo_footer:hover {
   background-color: #970748;
 }
+@media (max-width: 930px) {
+  nav ul li a {
+    padding: 0px;
+    margin: 0;
+  }
+}
 
-@media (max-width: 805px) {
+@media (max-width: 830px) {
   #cart_logo_footer img {
     width: 44px;
     height: 44px;
