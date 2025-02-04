@@ -71,4 +71,13 @@ document.addEventListener("turbo:load", function () {
       toggleActive();
     }
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      input.blur();
+    }
+    if (event.ctrlKey && event.key === "c") {
+      input.focus();
+    }
+  });
 });

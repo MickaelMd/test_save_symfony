@@ -59,6 +59,7 @@
         </div>
         <div class="form-check d-flex justify-content-center align-items-center mt-3">
             <form data-turbo="false" method="post" action="{{ path('app_panier_valider') }}">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('valider_commande') }}">
                 <input type="checkbox" class="form-check-input mt-2" name="cgv_check" id="cgv_check">
                 <label class="form-check-label mt-1" for="cgv_check">
                 Pour continuer, merci de lire et d'accepter <a href="{{ path('app_cgv') }}">les conditions générales de vente</a>.

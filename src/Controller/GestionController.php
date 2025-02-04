@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Symfony\Component\Security\Csrf\CsrfToken;
 
 class GestionController extends AbstractController
 {
@@ -49,11 +51,17 @@ class GestionController extends AbstractController
     }
 
     #[Route('/update-plat', name: 'update_plat', methods: ['POST'])]
-public function updatePlat(Request $request, PlatRepository $platRepository, EntityManagerInterface $em): Response
+public function updatePlat(Request $request, PlatRepository $platRepository, EntityManagerInterface $em, CsrfTokenManagerInterface $csrfTokenManager): Response
 {
     if (!$this->isGranted('ROLE_CHEF') && !$this->isGranted('ROLE_ADMIN')) {
         $this->addFlash('error', 'Vous n\'avez pas les droits pour accéder à cette page.');
         return $this->redirectToRoute('app_index');
+    }
+
+    $token = new CsrfToken('valider_commande', $request->request->get('_csrf_token'));
+    if (!$csrfTokenManager->isTokenValid($token)) {
+        $this->addFlash('error', 'Token CSRF invalide.');
+        return $this->redirectToRoute('app_gestion');
     }
 
     $id = $request->request->get('id');

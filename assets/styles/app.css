@@ -388,9 +388,9 @@ footer ul li a.active::after {
 /* ------------ !!!!!!!!!!! - Plats & Categories - !!!!!!!!!!! ------------ */
 
 .erreur_bdd {
-  background-color: #000000;
-  padding: 40px;
-  margin: 80px 0px 80px 0px;
+  background-color: #ffffff7c;
+  padding: 25px;
+  margin: 15px 0px 15px 0px;
   border-radius: 8px;
 }
 
@@ -817,7 +817,8 @@ footer ul li a.active::after {
 #btn_confirm_profil {
   background-color: rgb(252, 69, 69);
   text-decoration: none;
-  padding: 15px 40px;
+  width: 240px;
+  height: 50px;
   color: #000000;
   border: none;
   border-radius: 4px;
@@ -831,10 +832,21 @@ footer ul li a.active::after {
   background-color: rgb(253, 156, 156);
 }
 
+#profil_edit_section form {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#profil_edit_section form div {
+  width: 100%;
+  max-width: 400px;
+}
+
 #profil_edit_section input {
   width: 100%;
-  max-width: 500px;
-  margin: 5px 0px 5px 0px;
+  margin: 5px 0;
   padding: 8px 12px;
   border: 1px solid #c4c4c4;
   border-radius: 50px;

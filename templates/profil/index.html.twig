@@ -14,7 +14,6 @@
 
 {# -------- #}
 
-
 <div class="d-flex flex-row flex-wrap justify-content-center mt-3">
     {% for commandeWithTotal in commandesWithTotal %}
         <div class="card m-3 card_profil_commande" style="width: 18rem;">
@@ -44,12 +43,54 @@
 {# -------- #}
 
 <div class="d-flex flex-column align-items-center justify-content-center mt-3" id="profil_edit_section">
+    <h3 class="mt-3">Modifier son profil</h3>
 
-<h3 class="mt-3">Modifier son profil</h3>
-<input type="text" placeholder="Nom"  id="input_nom">
-<input type="text" name="" id="">
-<input type="text" name="" id="">
-<button>Modifier le profil</button>
+    <form data-turbo="false" action="{{ path('app_profil_update') }}" method="POST">    
+        <div class="d-flex flex-column align-items-center">
+            {{ form_start(form) }}
+
+    <div>
+        <label for="{{ form.nom.vars.id }}">Nom</label>
+        {{ form_widget(form.nom) }}
+        {{ form_errors(form.nom) }}
+    </div>
+
+    <div>
+        <label for="{{ form.prenom.vars.id }}">Prénom</label>
+        {{ form_widget(form.prenom) }}
+        {{ form_errors(form.prenom) }}
+    </div>
+
+    <div>
+        <label for="{{ form.telephone.vars.id }}">Téléphone</label>
+        {{ form_widget(form.telephone) }}
+        {{ form_errors(form.telephone) }}
+    </div>
+
+    <div>
+        <label for="{{ form.adresse.vars.id }}">Adresse</label>
+        {{ form_widget(form.adresse) }}
+        {{ form_errors(form.adresse) }}
+    </div>
+
+    <div>
+        <label for="{{ form.cp.vars.id }}">Code postal</label>
+        {{ form_widget(form.cp) }}
+        {{ form_errors(form.cp) }}
+    </div>
+
+    <div>
+        <label for="{{ form.ville.vars.id }}">Ville</label>
+        {{ form_widget(form.ville) }}
+        {{ form_errors(form.ville) }}
+    </div>
+
+    <button id="btn_update_profil" type="submit">Mettre à jour</button>
+
+{{ form_end(form) }}
+            
+        </div> 
+    </form>
 </div>
 
 {# -------- #}

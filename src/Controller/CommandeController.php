@@ -11,6 +11,8 @@ use App\Entity\Commande;
 use App\Entity\Detail;
 use App\Entity\Plat;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
+use Symfony\Component\Security\Csrf\CsrfToken;
 
 class CommandeController extends AbstractController
 {
@@ -24,7 +26,7 @@ class CommandeController extends AbstractController
     }
     
     #[Route('/panier/valider', name: 'app_panier_valider', methods: ['POST'] ) ]
-    public function valider(Request $request): Response
+    public function valider(Request $request, CsrfTokenManagerInterface $csrfTokenManager): Response
     {
 
         if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
@@ -40,6 +42,12 @@ class CommandeController extends AbstractController
         if ($request->request->get('cgv_check') === null) {
             
             $this->addFlash('error', 'Vous devez accepter les conditions générales de vente pour valider la commande.');
+            return $this->redirectToRoute('app_panier');
+        }
+
+        $token = new CsrfToken('valider_commande', $request->request->get('_csrf_token'));
+        if (!$csrfTokenManager->isTokenValid($token)) {
+            $this->addFlash('error', 'Token CSRF invalide.');
             return $this->redirectToRoute('app_panier');
         }
 

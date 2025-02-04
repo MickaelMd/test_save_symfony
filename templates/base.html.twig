@@ -19,7 +19,7 @@
             img-src 'self' data: https://*;
             connect-src 'self' https://* wss://*;
         ">
-        {% if app.request.get('_route') in ['app_contact', 'app_auth', 'app_gestion', 'app_panier'] %}
+        {% if app.request.get('_route') in ['app_contact', 'app_auth', 'app_gestion', 'app_panier', 'app_profil'] %}
             <meta name="turbo-visit-control" content="reload">
         {% else %}
             <meta name="turbo-visit-control" content="off">

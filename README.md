@@ -23,18 +23,24 @@
 
 - [x] Mise en place du panier (list, add, remove) dans un `service`
 - [x] Validation de la commande
-- [x] Gestion des mails via un `EventSubscriber`
+- [x] Gestion des mails via un `EventSubscriber` ([MailHog](https://github.com/mailhog/MailHog))
 
 ### Gestion du profil utilisateur :
 
-- [ ] Modification des informations du compte
+- [x] Modification des informations personnelles du compte
+- [ ] Modification de l'adresse email et du mot de passe du comtpe
 - [ ] Suppression du compte
 - [x] Historique des commandes
 
 ### Design et responsivité :
 
-- [x] Utilisation de Bootstrap
+- [x] Utilisation de ([Bootstrap](https://getbootstrap.com/)) (5.3.3)
 - [x] Site entièrement responsive
+
+### Sécurité :
+
+- [x] Jeton CSRF sur les formulaires personnalisés
+- [ ] Gestion des permissions de l'API
 
 ---
 
