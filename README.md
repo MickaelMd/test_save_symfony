@@ -34,7 +34,7 @@
 
 ### Design et responsivité :
 
-- [x] Utilisation de ([Bootstrap](https://getbootstrap.com/)) (5.3.3)
+- [x] Utilisation de [Bootstrap](https://getbootstrap.com/) (5.3.3)
 - [x] Site entièrement responsive
 
 ### Sécurité :
