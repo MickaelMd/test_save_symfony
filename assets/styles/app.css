@@ -881,3 +881,8 @@ footer ul li a.active::after {
 #profil_edit_section button:hover {
   background-color: #ffb340;
 }
+
+#profil_password {
+  /* border-color: red; */
+  border: 1px solid rgb(255, 182, 123) !important;
+}

@@ -93,7 +93,11 @@ document.addEventListener("turbo:load", function () {
   btn_nav.addEventListener("click", () => {
     if (active == false) {
       active = true;
-      nav.style.height = "320px";
+      if (document.getElementById("profil_link")) {
+        nav.style.height = "375px";
+      } else {
+        nav.style.height = "320px";
+      }
     } else {
       nav.style.height = "";
       active = false;

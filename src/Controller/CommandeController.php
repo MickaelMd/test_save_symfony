@@ -89,7 +89,7 @@ class CommandeController extends AbstractController
                  $this->addFlash('success', 'Votre commande a été validée avec succès. <script> localStorage.setItem("panier", JSON.stringify([]));</script>');
              } catch (\Exception $e) {
                  $this->entityManager->rollback(); 
-                 $this->addFlash('error', 'Une erreur est survenue lors de la validation de votre commande : ' . $e->getMessage());
+                 $this->addFlash('error', 'Une erreur est survenue lors de la validation de votre commande : ' . $e->getMessage() . ' (Installer <a href="https://github.com/mailhog/MailHog">MailHog</a>)');
                  return $this->redirectToRoute('app_panier');
              }
      

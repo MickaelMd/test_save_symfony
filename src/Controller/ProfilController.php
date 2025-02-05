@@ -11,6 +11,8 @@ use App\Repository\CommandeRepository;
 use App\Repository\DetailRepository;
 use App\Form\ProfilType;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use App\Entity\Utilisateur;
 
 class ProfilController extends AbstractController
 {
@@ -52,8 +54,8 @@ class ProfilController extends AbstractController
     }
 
     #[Route('/update_profil', name: 'app_profil_update', methods: ['POST'])]
-    public function updateProfil(Request $request, EntityManagerInterface $entityManager)
-{
+    public function updateProfil(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $hasher): Response
+    {
 
     if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
         $this->addFlash('error', 'Vous devez être <a href="/login">connecté</a> pour accéder à votre Profil.');
@@ -61,11 +63,22 @@ class ProfilController extends AbstractController
     }
 
     $user = $this->getUser();
-
+    if (!$user instanceof Utilisateur) {
+        throw new \LogicException('L\'utilisateur n\'est pas une instance de Utilisateur.');
+    }
+    
     $form = $this->createForm(ProfilType::class, $user);
     $form->handleRequest($request);
     if ($form->isSubmitted()) {
         if ($form->isValid()) {
+            
+            $plainPassword = $form->get('password')->getData();
+            if ($plainPassword && !$hasher->isPasswordValid($user, $plainPassword)) {
+
+                $this->addFlash('error', 'Mot de passe incorrect. Vous ne pouvez pas modifier ces informations.');
+                return $this->redirectToRoute('app_profil'); 
+            }
+
             $entityManager->persist($user);
             $entityManager->flush();
             $this->addFlash('success', 'Votre profil a été mis à jour.');

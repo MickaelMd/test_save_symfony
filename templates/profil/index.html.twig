@@ -85,6 +85,14 @@
         {{ form_errors(form.ville) }}
     </div>
 
+        <br>
+
+      <div>
+    <label class="text-center d-block" for="{{ form.password.vars.id }}">Mot de passe actuel</label>
+        {{ form_widget(form.password) }}
+        {{ form_errors(form.password) }}
+    </div>
+    
     <button id="btn_update_profil" type="submit">Mettre à jour</button>
 
 {{ form_end(form) }}

@@ -57,6 +57,13 @@
         <li><a href="{{ path('app_categories') }}">Catégories</a></li>
         <li><a href="{{ path('app_plats') }}">Plats</a></li>
         <li><a href="{{ path('app_contact') }}">Contact</a></li>
+          
+            {% if app.user %}
+                <li>
+                <a href="{{ path('app_profil') }}">Profil</a>
+                </li>
+            {% endif %}
+        
         <li>
             {% if app.user %}
                 <a href="{{ path('app_logout') }}">Déconnexion</a>
@@ -110,11 +117,13 @@
                 <li><a href="{{ path('app_categories') }}">Catégories</a></li>
                 <li><a href="{{ path('app_plats') }}">Plats</a></li>
                 <li><a href="{{ path('app_contact') }}">Contact</a></li>
-                  <li>
+                  
             {% if app.user %}
-                <a href="{{ path('app_profil') }}">Profil</a>
+                <li>
+                <a id="profil_link" href="{{ path('app_profil') }}">Profil</a>
+                </li>
             {% endif %}
-                 </li>
+                 
                 <li>
                     {% if app.user %}
                         <a href="{{ path('app_logout') }}">Déconnexion</a>

@@ -9,13 +9,20 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Regex;
-
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class ProfilType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+
+        ->add('password', PasswordType::class, [
+            'label' => 'Mot de passe actuel',
+            'mapped' => false, 
+            'required' => true,
+        ])
+        
             ->add('nom', TextType::class, [
                 'label' => false,
                 'constraints' => [

@@ -28,7 +28,7 @@ class Auth_LoginController extends AbstractController
                 throw new \Exception('Jeton CSRF invalide.');
             }
         }
-
+        
         $error = $utils->getLastAuthenticationError();
         $lastUsername = $utils->getLastUsername();
         return $this->render('auth_login/index.html.twig', [

@@ -76,7 +76,7 @@ document.addEventListener("turbo:load", function () {
     if (event.key === "Escape") {
       input.blur();
     }
-    if (event.ctrlKey && event.key === "c") {
+    if (event.ctrlKey && event.key === "k") {
       input.focus();
     }
   });
