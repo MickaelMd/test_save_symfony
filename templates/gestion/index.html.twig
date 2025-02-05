@@ -19,6 +19,7 @@
         {% for commande in commandes %}
             <option value="{{ commande.id }}"
                 data-user-id="{{ commande.utilisateur.id }}"
+                data-etat="{{commande.etat}}"
                 data-user-nom="{{ commande.utilisateur.nom }}"
                 data-user-prenom="{{ commande.utilisateur.prenom }}"
                 data-user-telephone="{{ commande.utilisateur.telephone }}"
@@ -39,7 +40,7 @@
             <p><strong>Date :</strong> {{ commande.dateCommande|date('d/m/Y') }}</p>
             
             <div class="table-responsive">
-                <table class="table table-bordered table-striped">
+                <table id="table_gestion" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th colspan="2">Informations utilisateur</th>
@@ -62,6 +63,24 @@
                             <td><strong>Adresse</strong></td>
                             <td>{{ commande.utilisateur.adresse }}</td>
                         </tr>
+                         <tr>
+                          <tr>
+                        <td><strong>État</strong></td>
+                        <td>
+                            <form method="POST" action="{{ path('update-commande-etat') }}">
+                                <input type="hidden" name="id" id="input_commande_id" value="{{ commande.id }}">
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('update_commande_etat') }}">
+                                <select name="etat" id="etat_select">
+                                    <option value="0" {% if commande.etat == 0 %}selected{% endif %}>Enregistrée/Payée</option>
+                                    <option value="1" {% if commande.etat == 1 %}selected{% endif %}>En préparation</option>
+                                    <option value="2" {% if commande.etat == 2 %}selected{% endif %}>En cours de livraison</option>
+                                    <option value="3" {% if commande.etat == 3 %}selected{% endif %}>Livrée</option>
+                                </select>
+                                <button data-turbo="false" type="submit" id="edit_commande_etat">Modifier</button>
+                            </form>
+                        </td>
+                    </tr>
+
                     </tbody>
                 </table>
 
@@ -120,7 +139,7 @@
   <h3 class="text-center mb-4">Modifier les informations</h3>
   
   <form id="form_modification" method="POST" enctype="multipart/form-data" action="{{ path('update_plat') }}">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token('valider_commande') }}">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('update_plat') }}">
 
     <input type="hidden" name="id" id="input_id" value="">
     

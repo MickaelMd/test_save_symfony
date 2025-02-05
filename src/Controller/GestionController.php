@@ -58,7 +58,7 @@ public function updatePlat(Request $request, PlatRepository $platRepository, Ent
         return $this->redirectToRoute('app_index');
     }
 
-    $token = new CsrfToken('valider_commande', $request->request->get('_csrf_token'));
+    $token = new CsrfToken('update_plat', $request->request->get('_csrf_token'));
     if (!$csrfTokenManager->isTokenValid($token)) {
         $this->addFlash('error', 'Token CSRF invalide.');
         return $this->redirectToRoute('app_gestion');
@@ -120,5 +120,34 @@ public function updatePlat(Request $request, PlatRepository $platRepository, Ent
     $this->addFlash('success', 'Plat modifié avec succès.');
     return $this->redirectToRoute('app_gestion');
 }
+
+#[Route('/update-commande-etat', name: 'update-commande-etat', methods: ['POST'])]
+public function updateCommandeEtat(Request $request, EntityManagerInterface $em, CsrfTokenManagerInterface $csrfTokenManager, CommandeRepository $commandeRepository): Response
+{
+
+    if (!$this->isGranted('ROLE_CHEF') && !$this->isGranted('ROLE_ADMIN')) {
+        $this->addFlash('error', 'Vous n\'avez pas les droits pour accéder à cette page.');
+        return $this->redirectToRoute('app_index');
+    }
+    $token = new CsrfToken('update_commande_etat', $request->request->get('_csrf_token'));
+    if (!$csrfTokenManager->isTokenValid($token)) {
+        $this->addFlash('error', 'Token CSRF invalide.');
+        return $this->redirectToRoute('app_gestion');
+    }
+
+    $id = $request->request->get('id');
+    $commandes = $commandeRepository->FindBy(['id' => $id]);
+
+    if (!$commandes) {
+        $this->addFlash('error', 'Une erreur s\'est produite lors de la sélection de la commande.');
+        return $this->redirectToRoute('app_gestion');
+    }
+
+   dd($request->request->all());
+
+    // dd($request->getContent()); 
+    // return $this->redirectToRoute('app_gestion');
+}
+
 
 }

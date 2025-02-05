@@ -705,6 +705,34 @@ footer ul li a.active::after {
   object-fit: cover;
 }
 
+.table > :not(caption) > * > * {
+  background-color: rgba(255, 255, 255, 0.705);
+}
+
+#edit_commande_etat {
+  padding: 5px 20px;
+  background-color: #ffcd83;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+#edit_commande_etat:hover {
+  background-color: #ffb340;
+}
+
+#etat_select {
+  border-radius: 8px;
+  text-align: center;
+  background-color: #ffcd83;
+  padding: 3px;
+}
+#etat_select option:hover {
+  background-color: #ffb340;
+}
+
 /* ------------ !!!!!!!!!!! - Commande (Panier) - !!!!!!!!!!! ------------ */
 
 .command_cards {
