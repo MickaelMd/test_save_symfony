@@ -1,3 +1,12 @@
+// function show_section(button, section) {
+//   const btn = document.getElementById(button);
+//   const section_select = document.getElementById(section);
+//   btn.addEventListener("click", () => {
+//     let active = section;
+//     if (bt)
+//   });
+// }
+
 const btn = document.getElementById("btn_delete_profil");
 const btn_confirm = document.getElementById("btn_confirm_profil");
 
@@ -36,6 +45,8 @@ btn_confirm.addEventListener("click", (e) => {
     e.preventDefault();
   }
 });
+
+// ------------- Profil
 
 const erreur_message = {
   nom: "Le nom ne doit contenir que des lettres.",
@@ -92,4 +103,58 @@ function erreur(e) {
 
 document.getElementById("btn_update_profil").addEventListener("click", (e) => {
   erreur(e);
+});
+
+// ------------- Password
+
+const newpass = document.getElementById("profil_password_newPassword_first");
+const newpass_confirm = document.getElementById(
+  "profil_password_newPassword_second"
+);
+const btn_pass = document.getElementById("newpass_button");
+
+function error_password(input, error_text) {
+  input.style.outline = "2px solid red";
+
+  let existingMessage = input.parentElement.querySelector("p");
+  if (!existingMessage) {
+    const message = document.createElement("p");
+    message.textContent = error_text;
+    message.style.color = "red";
+    input.parentElement.appendChild(message);
+  }
+}
+
+function clear_error(input) {
+  input.style.outline = "";
+  let existingMessage = input.parentElement.querySelector("p");
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+}
+
+btn_pass.addEventListener("click", (e) => {
+  clear_error(newpass);
+  clear_error(newpass_confirm);
+
+  let isValid = true;
+
+  if (!/^(?=.*[A-Z])(?=.*\d)(?=.*[^ws]).{8,}$/.test(newpass.value)) {
+    e.preventDefault();
+    error_password(
+      newpass,
+      "Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial."
+    );
+    isValid = false;
+  }
+
+  if (newpass.value !== newpass_confirm.value) {
+    e.preventDefault();
+    error_password(newpass_confirm, "Les mots de passe ne correspondent pas.");
+    isValid = false;
+  }
+
+  if (isValid) {
+    console.log("Mot de passe validé");
+  }
 });

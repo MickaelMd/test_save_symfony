@@ -30,7 +30,7 @@
 ### Gestion du profil utilisateur :
 
 - [x] Modification des informations personnelles du compte
-- [ ] Modification de l'adresse email et du mot de passe du comtpe
+- [x] Modification de l'adresse email et du mot de passe du comtpe
 - [ ] Suppression du compte
 - [x] Historique des commandes
 

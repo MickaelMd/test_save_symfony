@@ -860,19 +860,28 @@ footer ul li a.active::after {
   background-color: rgb(253, 156, 156);
 }
 
-#profil_edit_section form {
+#profil_edit_section form,
+#profil_password_section form,
+#profil_email_section form,
+#profil_delete_section form {
   width: 100%;
   max-width: 100%;
   display: flex;
   justify-content: center;
 }
 
-#profil_edit_section form div {
+#profil_edit_section form div,
+#profil_password_section form div,
+#profil_email_section form div,
+#profil_delete_section form div {
   width: 100%;
   max-width: 400px;
 }
 
-#profil_edit_section input {
+#profil_edit_section input,
+#profil_password_section input,
+#profil_email_section input,
+#profil_delete_section input {
   width: 100%;
   margin: 5px 0;
   padding: 8px 12px;
@@ -881,19 +890,30 @@ footer ul li a.active::after {
   transition: all 0.3s ease;
 }
 
-#profil_edit_section input:hover {
+#profil_edit_section input:hover,
+#profil_password_section input:hover,
+#profil_email_section input:hover,
+#profil_delete_section input:hover {
   border-color: #970747;
 }
-#profil_edit_section input:focus {
+#profil_edit_section input:focus,
+#profil_password_section input:focus,
+#profil_email_section input:focus,
+#profil_delete_section input:focus {
   border-color: #970747;
   box-shadow: 0 0 8px #970747;
   outline: none;
 }
 
-#profil_edit_section input::placeholder {
+#profil_edit_section input::placeholder,
+#profil_password_section input::placeholder,
+#profil_email_section input::placeholder,
+#profil_delete_section input::placeholder {
   font-style: italic;
 }
-#profil_edit_section button {
+#profil_edit_section button,
+#profil_password_section button,
+#profil_email_section button {
   padding: 5px 20px;
   margin-top: 20px;
   text-decoration: none;
@@ -906,11 +926,31 @@ footer ul li a.active::after {
   box-shadow: 0px 0px 20px -18px;
 }
 
-#profil_edit_section button:hover {
+#profil_edit_section button:hover,
+#profil_password_section button:hover,
+#profil_email_section button:hover,
+.btn_select_profil:hover {
   background-color: #ffb340;
 }
 
-#profil_password {
+#profil_password,
+#profil_password_plainPassword,
+#profil_email_plainPassword,
+#input_delete_profil {
   /* border-color: red; */
   border: 1px solid rgb(255, 182, 123) !important;
+}
+
+.btn_select_profil {
+  padding: 8px 20px;
+  margin: 5px;
+  margin-top: 20px;
+  text-decoration: none;
+  background-color: #ffcd83;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 150ms;
+  box-shadow: 0px 0px 20px -18px;
 }

@@ -46,14 +46,14 @@ class Auth_RegisterController extends AbstractController
                 $this->entityManager->persist($user);
                 $this->entityManager->flush();
 
-                return $this->render('auth_register/valide.html.twig');
+                $this->addFlash('success', 'Votre compte a été créé, vous pouvez vous connecter.');
+                return $this->redirectToRoute('app_login');
             }
     
             return $this->render('auth_register/index.html.twig', [
                 'registrationForm' => $registrationForm->createView(),
             ])->setPublic()->setMaxAge(0);
         }
-        
         
         return $this->render('auth_register/index.html.twig', [
             'registrationForm' => $registrationForm->createView(),
