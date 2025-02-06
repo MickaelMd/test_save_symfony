@@ -12,7 +12,7 @@
 - [x] Mise en place de la structure du site
 - [x] Gestion de l'authentification
 - [x] Gestion des rôles et de l'accès aux pages
-- [x] Page de gestion des plats et des commandes (80%) pour le `ROLE_CHEF` et `ROLE_ADMIN`
+- [x] Page de gestion des plats et des commandes pour le `ROLE_CHEF` et `ROLE_ADMIN`
 
 ### Mise en place de l'API avec Api Platform :
 

@@ -135,18 +135,34 @@ public function updateCommandeEtat(Request $request, EntityManagerInterface $em,
         return $this->redirectToRoute('app_gestion');
     }
 
-    $id = $request->request->get('id');
-    $commandes = $commandeRepository->FindBy(['id' => $id]);
+    $id = (int) $request->request->get('id');
+    $value = (int) $request->request->get('etat');
+    $commandes = (int) $commandeRepository->FindBy(['id' => $id]);
+    $commande = $commandeRepository->find($id);
+
 
     if (!$commandes) {
         $this->addFlash('error', 'Une erreur s\'est produite lors de la sélection de la commande.');
         return $this->redirectToRoute('app_gestion');
     }
+    if ($value > 3 || $value < 0) {
+        $this->addFlash('error', 'Une erreur s\'est produite lors de la sélection de l\'état.');
+        return $this->redirectToRoute('app_gestion');
+    }
 
-   dd($request->request->all());
+    try {
+        $commande->setEtat($value);
+        $em->flush();
 
-    // dd($request->getContent()); 
-    // return $this->redirectToRoute('app_gestion');
+        $this->addFlash('success', 'Etat de la commande mise a jour');
+        return $this->redirectToRoute('app_gestion');
+
+    } catch (\Exception $e) {
+        $this->addFlash('error', 'Une erreur est survenue lors de la mise à jour de la commande.');
+    }
+    
+//    dd($request->request->all());
+
 }
 
 
