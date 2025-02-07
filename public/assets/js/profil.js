@@ -1,11 +1,18 @@
-// function show_section(button, section) {
-//   const btn = document.getElementById(button);
-//   const section_select = document.getElementById(section);
-//   btn.addEventListener("click", () => {
-//     let active = section;
-//     if (bt)
-//   });
-// }
+const sections = [
+  "profil_edit_section",
+  "profil_password_section",
+  "profil_email_section",
+];
+const buttons = ["btn_inf", "btn_pwd", "btn_email"];
+
+buttons.forEach((btnId, index) => {
+  document.getElementById(btnId).addEventListener("click", () => {
+    sections.forEach((id) =>
+      document.getElementById(id).classList.add("d-none")
+    );
+    document.getElementById(sections[index]).classList.remove("d-none");
+  });
+});
 
 const btn = document.getElementById("btn_delete_profil");
 const btn_confirm = document.getElementById("btn_confirm_profil");
